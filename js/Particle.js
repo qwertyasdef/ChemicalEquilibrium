@@ -4,6 +4,7 @@ class Particle {
         const maxMomentum = 10;
 
         this.container = container
+        this.type = type;
 
         // Properties of particle
         this.r = type.r;
@@ -27,14 +28,13 @@ class Particle {
         let nextX = this.x + this.vx;
         let nextY = this.y + this.vy;
 
-        // Bounce off other particles
+        // Check collisions
         for (let p of others) {
             // Don't bounce off yourself
             if (p === this) {
                 continue;
             }
 
-            // Check collisions
             let dx = p.x - this.x;
             let dy = p.y - this.y;
             let nextDx = p.x - nextX;
@@ -58,6 +58,29 @@ class Particle {
                 this.vy = newV1n * Math.sin(theta) - v1p * Math.cos(theta);
                 p.vx = newV2n * Math.cos(theta) + v2p * Math.sin(theta);
                 p.vy = newV2n * Math.sin(theta) - v2p * Math.cos(theta);
+
+                // Reactions
+                if (this.type === ParticleTypes.A && p.type === ParticleTypes.B) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                        this.setType(ParticleTypes.C);
+                        p.setType(ParticleTypes.D);
+                    }
+                } else if (this.type === ParticleTypes.B && p.type === ParticleTypes.A) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                        this.setType(ParticleTypes.D);
+                        p.setType(ParticleTypes.C);
+                    }
+                } else if (this.type === ParticleTypes.C && p.type === ParticleTypes.D) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                        this.setType(ParticleTypes.A);
+                        p.setType(ParticleTypes.B);
+                    }
+                } else if (this.type === ParticleTypes.D && p.type === ParticleTypes.C) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                        this.setType(ParticleTypes.B);
+                        p.setType(ParticleTypes.A);
+                    }
+                }
             }
 
         }
@@ -87,6 +110,17 @@ class Particle {
             this.y += this.vy;
         }
 
+    }
+
+    setType(type) {
+        this.type = type;
+        this.r = type.r;
+        // Conserve energy
+        let factor = Math.sqrt(this.m / type.m);
+        this.vx *= factor;
+        this.vy *= factor;
+        this.m = type.m;
+        this.color = type.color;
     }
 
     draw(ctx) {
