@@ -6,11 +6,17 @@ window.onload = function() {
     var ctx = background.getContext("2d");
 
     var particles = [];
-    for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(background, ParticleTypes.H));
+    for (let i = 0; i < 10; i++) {
+        particles.push(new Particle(background, ParticleTypes.A));
     }
     for (let i = 0; i < 10; i++) {
-        particles.push(new Particle(background, ParticleTypes.O));
+        particles.push(new Particle(background, ParticleTypes.B));
+    }
+    for (let i = 0; i < 10; i++) {
+        particles.push(new Particle(background, ParticleTypes.C));
+    }
+    for (let i = 0; i < 10; i++) {
+        particles.push(new Particle(background, ParticleTypes.D));
     }
 
     function draw(time) {

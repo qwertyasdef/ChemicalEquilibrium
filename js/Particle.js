@@ -45,17 +45,19 @@ class Particle {
                 // Angle of collision
                 let theta = Math.atan2(dy, dx);
 
-                // Normal and parallel components of momentum relative to collision
-                let p1n = this.m * (this.vx * Math.cos(theta) + this.vy * Math.sin(theta));
-                let p1p = this.m * (this.vx * Math.sin(theta) - this.vy * Math.cos(theta));
-                let p2n = p.m * (p.vx * Math.cos(theta) + p.vy * Math.sin(theta));
-                let p2p = p.m * (p.vx * Math.sin(theta) - p.vy * Math.cos(theta));
+                // Normal and parallel components of velocity relative to collision
+                let v1n = this.vx * Math.cos(theta) + this.vy * Math.sin(theta);
+                let v1p = this.vx * Math.sin(theta) - this.vy * Math.cos(theta);
+                let v2n = p.vx * Math.cos(theta) + p.vy * Math.sin(theta);
+                let v2p = p.vx * Math.sin(theta) - p.vy * Math.cos(theta);
 
-                // Elastic collision: particles keep parallel momentum and swap perpendicular momentum
-                this.vx = (p2n * Math.cos(theta) + p1p * Math.sin(theta)) / this.m;
-                this.vy = (p2n * Math.sin(theta) - p1p * Math.cos(theta)) / this.m;
-                p.vx = (p1n * Math.cos(theta) + p2p * Math.sin(theta)) / p.m;
-                p.vy = (p1n * Math.sin(theta) - p2p * Math.cos(theta)) / p.m;
+                // Elastic collision formula from https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=12&cad=rja&uact=8&ved=0ahUKEwjp-er0nc3bAhVtJDQIHV1DD38QFgiPATAL&url=https%3A%2F%2Fimada.sdu.dk%2F~rolf%2FEdu%2FDM815%2FE10%2F2dcollisions.pdf&usg=AOvVaw1zP8W3J-k7i750uBViTZu_
+                v1n = (v1n * (this.m - p.m) + 2 * p.m * v2n)/(this.m + p.m);
+                v2n = (v2n * (p.m - this.m) + 2 * this.m * v1n)/(this.m + p.m);
+                this.vx = v1n * Math.cos(theta) + v1p * Math.sin(theta);
+                this.vy = v1n * Math.sin(theta) - v1p * Math.cos(theta);
+                p.vx = v2n * Math.cos(theta) + v2p * Math.sin(theta);
+                p.vy = v2n * Math.sin(theta) - v2p * Math.cos(theta);
             }
 
         }
