@@ -52,12 +52,12 @@ class Particle {
                 let v2p = p.vx * Math.sin(theta) - p.vy * Math.cos(theta);
 
                 // Elastic collision formula from https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=12&cad=rja&uact=8&ved=0ahUKEwjp-er0nc3bAhVtJDQIHV1DD38QFgiPATAL&url=https%3A%2F%2Fimada.sdu.dk%2F~rolf%2FEdu%2FDM815%2FE10%2F2dcollisions.pdf&usg=AOvVaw1zP8W3J-k7i750uBViTZu_
-                v1n = (v1n * (this.m - p.m) + 2 * p.m * v2n)/(this.m + p.m);
-                v2n = (v2n * (p.m - this.m) + 2 * this.m * v1n)/(this.m + p.m);
-                this.vx = v1n * Math.cos(theta) + v1p * Math.sin(theta);
-                this.vy = v1n * Math.sin(theta) - v1p * Math.cos(theta);
-                p.vx = v2n * Math.cos(theta) + v2p * Math.sin(theta);
-                p.vy = v2n * Math.sin(theta) - v2p * Math.cos(theta);
+                let newV1n = (v1n * (this.m - p.m) + 2 * p.m * v2n)/(this.m + p.m);
+                let newV2n = (v2n * (p.m - this.m) + 2 * this.m * v1n)/(this.m + p.m);
+                this.vx = newV1n * Math.cos(theta) + v1p * Math.sin(theta);
+                this.vy = newV1n * Math.sin(theta) - v1p * Math.cos(theta);
+                p.vx = newV2n * Math.cos(theta) + v2p * Math.sin(theta);
+                p.vy = newV2n * Math.sin(theta) - v2p * Math.cos(theta);
             }
 
         }

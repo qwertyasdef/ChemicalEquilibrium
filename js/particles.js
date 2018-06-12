@@ -5,7 +5,7 @@ window.onload = function() {
     var background = document.getElementById("simulation");
     var ctx = background.getContext("2d");
 
-    var particles = [];
+    particles = [];
     for (let i = 0; i < 10; i++) {
         particles.push(new Particle(background, ParticleTypes.A));
     }
@@ -31,4 +31,12 @@ window.onload = function() {
 
     window.requestAnimationFrame(draw);
 
+}
+
+function getEnergy() {
+    let U = 0;
+    for (let p of particles) {
+        U += 1/2 * p.m * (p.vx**2 + p.vy**2);
+    }
+    return U;
 }
