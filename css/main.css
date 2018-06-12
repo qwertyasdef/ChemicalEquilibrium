@@ -46,23 +46,19 @@ body {
 
 .equation {
     display: block;
-    padding-left: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .fraction {
-    padding: 10px;
-    width: auto;
+    display: block;
+    width: -webkit-min-content;
+    width: -moz-min-content;
 }
 
-.fraction > .numerator {
-    position: relative;
+.fraction > line {
+    display: block;
+    height: 0.1em;
     border-bottom: 1px solid black;
-}
-
-.fraction > .denominator {
-    position: relative;
-    bottom: -1.2em;
-    left: -9%;
 }

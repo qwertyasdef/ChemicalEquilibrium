@@ -1,4 +1,4 @@
-const particleCount = 10;
+const particleCount = 30;
 
 window.onload = function() {
     var background = document.getElementById("simulation");
@@ -10,10 +10,7 @@ window.onload = function() {
         particles.push(new Particle(background.width, background.height));
     }
 
-    let frame = 0;
-
     function draw(time) {
-        frame++;
         ctx.fillStyle = "blue";
         ctx.fillRect(0, 0, background.width, background.height);
         for (let p of particles) {
@@ -24,4 +21,5 @@ window.onload = function() {
     }
 
     window.requestAnimationFrame(draw);
+    
 }
