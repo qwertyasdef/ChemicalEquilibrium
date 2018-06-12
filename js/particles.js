@@ -1,17 +1,20 @@
-const particleCount = 30;
-
 window.onload = function() {
+    const particleColor = "white";
+    const backgroundColor = "blue";
+
     var background = document.getElementById("simulation");
-    ctx = background.getContext("2d");
+    var ctx = background.getContext("2d");
 
-    particles = [];
-
-    for (i = 0; i < particleCount; i++) {
-        particles.push(new Particle(background.width, background.height));
+    var particles = [];
+    for (let i = 0; i < 20; i++) {
+        particles.push(new Particle(background, ParticleTypes.H));
+    }
+    for (let i = 0; i < 10; i++) {
+        particles.push(new Particle(background, ParticleTypes.O));
     }
 
     function draw(time) {
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = backgroundColor;
         ctx.fillRect(0, 0, background.width, background.height);
         for (let p of particles) {
             p.update(particles);
@@ -21,5 +24,5 @@ window.onload = function() {
     }
 
     window.requestAnimationFrame(draw);
-    
+
 }
