@@ -53,17 +53,32 @@ p {
     border-bottom: 1px solid black;
 }
 
+#simulation-container {
+    border-radius: 1em;
+    background-color: darkgray; /* Actually lighter than gray */
+    padding: 0.5em;
+    border: 0.5em solid gray;
+}
+
+#sim-title {
+    text-align: center;
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    font-weight: bold;
+}
+
 /* The legend for the simulation */
 .legend {
     display: block;
-    width: 10%;
+    width: 8%;
     position: relative;
     float: left;
     padding: 0em 0.5em;
     line-height: 2em;
     border-radius: 0.5em;
-    background-color: rgb(128, 128, 128);
+    background-color: gray;
     color: white;
+    margin: auto;
 }
 .circle {
     display: inline-block;
@@ -76,5 +91,10 @@ p {
 #simulation {
     display: block;
     margin: auto;
-    color: blue;
+}
+
+table {
+    width: 100%;
+    margin-top: 1em;
+    text-align: center;
 }

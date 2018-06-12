@@ -55,10 +55,8 @@
             </span>
             The value <span class="fraction">k<sub>1</sub><line></line>k<sub>2</sub></span> is a constant, which we call K<sub>eq</sub>.
         </p>
-        <p>
-            I'm sure this particle simulation will be useful somehow...
-        </p>
-        <div>
+        <div id="simulation-container">
+            <div id="sim-title">Reaction Simulator</div>
             <span class="legend">
                 <b>Legend:</b>
                 <br />
@@ -71,6 +69,26 @@
                 D: <span class="circle" style="width: 1em; height: 1em; background-color: green; top: 0.25em; left: 0.25em;"></span>
             </span>
             <canvas id="simulation" width="640" height="360"></canvas>
+            <table>
+                <tr>
+                    <th>A</th>
+                    <th>+</th>
+                    <th>B</th>
+                    <th>&#8644;</th>
+                    <th>C</th>
+                    <th>+</th>
+                    <th>D</th>
+                </tr>
+                <tr>
+                    <td id="[A]"></td>
+                    <td></td>
+                    <td id="[B]"></td>
+                    <td></td>
+                    <td id="[C]"></td>
+                    <td></td>
+                    <td id="[D]"></td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

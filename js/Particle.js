@@ -61,22 +61,22 @@ class Particle {
 
                 // Reactions
                 if (this.type === ParticleTypes.A && p.type === ParticleTypes.B) {
-                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 40) {
                         this.setType(ParticleTypes.C);
                         p.setType(ParticleTypes.D);
                     }
                 } else if (this.type === ParticleTypes.B && p.type === ParticleTypes.A) {
-                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 40) {
                         this.setType(ParticleTypes.D);
                         p.setType(ParticleTypes.C);
                     }
                 } else if (this.type === ParticleTypes.C && p.type === ParticleTypes.D) {
-                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 40) {
                         this.setType(ParticleTypes.A);
                         p.setType(ParticleTypes.B);
                     }
                 } else if (this.type === ParticleTypes.D && p.type === ParticleTypes.C) {
-                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 20) {
+                    if (this.m * (this.vx**2 + this.vy**2) + p.m * (p.vx**2 + p.vy**2) > 40) {
                         this.setType(ParticleTypes.B);
                         p.setType(ParticleTypes.A);
                     }
