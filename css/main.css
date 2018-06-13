@@ -53,7 +53,7 @@ p {
     border-bottom: 1px solid black;
 }
 
-#simulation-container {
+#sim-container {
     border-radius: 1em;
     background-color: darkgray; /* Actually lighter than gray */
     padding: 0.5em;
@@ -102,19 +102,19 @@ p {
     margin: auto;
 }
 
-form {
+/* Container for the options */
+#sim-options {
     display: block;
     margin: auto;
     padding: 0.5em;
     border: 1px solid black;
 }
 
-table {
+#sim-data {
     width: 100%;
     margin-top: 1em;
     text-align: center;
 }
-
 th, td {
     width: 14%;
 }

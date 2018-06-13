@@ -57,7 +57,7 @@
             The value <span class="fraction">k<sub>1</sub><line></line>k<sub>2</sub></span> is a constant, which we call K<sub>eq</sub>.
         </p>
 
-        <div id="simulation-container">
+        <div id="sim-container">
 
             <div id="sim-title">Reaction Simulator</div>
 
@@ -76,17 +76,17 @@
 
             <canvas id="simulation" width="640" height="360"></canvas>
 
-            <form>
+            <div id="sim-options">
                 Reaction:
-                <select name="reaction">
+                <select id="reaction">
                     <option value="pressure">A + B &#8644; C</option>
                     <option value="temperature">A + B &#8644; C, &Delta;H < 0</option>
                     <option value="concentration">A + B &#8644; C + D</option>
                 </select>
                 <button type="button" onclick="simulate()">Start</button>
-            </form>
+            </div>
 
-            <table>
+            <table id="sim-data">
                 <tr>
                     <th>A</th>
                     <th>+</th>
@@ -97,13 +97,13 @@
                     <th>D</th>
                 </tr>
                 <tr>
-                    <td id="[A]"></td>
+                    <td id="[A]">0</td>
                     <td></td>
-                    <td id="[B]"></td>
+                    <td id="[B]">0</td>
                     <td></td>
-                    <td id="[C]"></td>
+                    <td id="[C]">0</td>
                     <td></td>
-                    <td id="[D]"></td>
+                    <td id="[D]">0</td>
                 </tr>
             </table>
 

@@ -3,6 +3,7 @@ const backgroundColor = "blue";
 let background;
 let ctx;
 let frameID;
+let reaction;
 
 window.onload = function() {
     background = document.getElementById("simulation");
@@ -14,21 +15,21 @@ function simulate() {
     if (frameID !== null) {
         window.cancelAnimationFrame(frameID);
     }
+    let reactionIndex = document.getElementById("reaction").selectedIndex;
+    reaction = reactions[reactionIndex];
     // Reset particles
     particles = [];
     let container = {"width": background.width, "height": background.height};
-    for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(container, ParticleTypes.A));
+    for (let type of reaction.reactants) {
+        for (let i = 0; i < 10; i++) {
+            particles.push(new Particle(container, type));
+        }
     }
-    for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(container, ParticleTypes.B));
+    for (let type of reaction.products) {
+        for (let i = 0; i < 10; i++) {
+            particles.push(new Particle(container, type));
+        }
     }
-    for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(container, ParticleTypes.C));
-    }
-    // for (let i = 0; i < 20; i++) {
-    //     particles.push(new Particle(background, ParticleTypes.D));
-    // }
 
     function update(time) {
         // Draw and update simulation

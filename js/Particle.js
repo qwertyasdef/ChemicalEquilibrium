@@ -59,56 +59,12 @@ class Particle {
                 p.vx = newV2n * Math.cos(theta) + v2p * Math.sin(theta);
                 p.vy = newV2n * Math.sin(theta) - v2p * Math.cos(theta);
 
-                // Reactions
-                for (let reaction of reactions) {
-                    // React
-                    if (sameElements([this.type, p.type], reaction.reactants) && this.energy() + p.energy() > reaction.activation) {
-                        // Can react
-                        if (reaction.products.length === 1) {
-                            particles = particles.filter(item => (item !== this && item !== p));
-                            let n = new Particle(this.container, reaction.products[0]);
-                            n.x = (this.x + p.x) / 2;
-                            n.y = (this.y + p.y) / 2;
-                            n.vx = (this.m * this.vx + p.m * p.vx) / n.m;
-                            n.vy = (this.m * this.vy + p.m * p.vy) / n.m;
-                            let factor = Math.sqrt(2 * (this.energy() + p.energy()) / (n.m * (n.vx**2 + n.vy**2)));
-                            n.vx *= factor;
-                            n.vy *= factor;
-                            particles.push(n);
-                        } else if (reaction.products.length === 2) {
-                            this.setType(reaction.products[0]);
-                            p.setType(reaction.products[1]);
-                        }
-                    }
-                }
+                this.react(p);
             }
 
         }
 
-        for (let decomposition of decompositions) {
-            if (this.type !== decomposition.reactant) {
-                continue;
-            }
-            if (this.energy() > decomposition.activation && Math.random() < decomposition.chance) {
-                // Can decompose
-                particles = particles.filter(item => item !== this);
-                let p1 = new Particle(this.container, decomposition.products[0]);
-                let p2 = new Particle(this.container, decomposition.products[1]);
-                p1.x = this.x + Math.random() * 2 * this.r - this.r;
-                p1.y = this.y + Math.random() * 2 * this.r - this.r;
-                p2.x = this.x + Math.random() * 2 * this.r - this.r;
-                p2.y = this.y + Math.random() * 2 * this.r - this.r;
-                p2.vx = (this.m * this.vx - p1.m * p1.vx) / p2.m;
-                p2.vy = (this.m * this.vy - p1.m * p1.vy) / p2.m;
-                let factor = Math.sqrt(this.energy() / (p1.energy() + p2.energy()));
-                p1.vx *= factor;
-                p1.vy *= factor;
-                p2.vx *= factor;
-                p2.vy *= factor;
-                particles.push(p1);
-                particles.push(p2);
-            }
-        }
+        this.decompose();
 
         // Update predicted next position with new velocities
         nextX = this.x + this.vx;
@@ -159,9 +115,70 @@ class Particle {
         return 1/2 * this.m * (this.vx**2 + this.vy**2);
     }
 
+    react(other) {
+        let input;
+        let output;
+        if (same([this.type, other.type], reaction.reactants)
+        && this.energy() + other.energy() > reaction.activation + Math.max(reaction.deltaH, 0)) {
+            input = reaction.reactants;
+            output = reaction.products;
+        } else if (same ([this.type, other.type], reaction.products)
+        && this.energy() + other.energy() > reaction.activation + Math.max(-reaction.deltaH, 0)) {
+            input = reaction.products;
+            output = reaction.reactants;
+        } else {
+            return;
+        }
+
+        // Remove reacting particles
+        particles = particles.filter(item => item !== this && item !== other);
+        let products = [];
+        for (let product of output) {
+            let temp = new Particle(this.container, product);
+            temp.x = (this.x + other.x) / 2 + Math.random() * 10 - 5;
+            temp.y = (this.y + other.y) / 2 + Math.random() * 10 - 5;
+            products.push(temp);
+        }
+        let totalE = 0;
+        for (let p of products) {
+            totalE += p.energy();
+        }
+        let factor = Math.sqrt((this.energy() + other.energy()) / totalE);
+        for (let p of products) {
+            p.vx *= factor;
+            p.vy *= factor;
+            particles.push(p);
+        }
+    }
+
+    decompose() {
+        let input;
+        let output;
+        if (reaction.reactants.length === 1 && reaction.reactants[0] === this.type
+        && this.energy() > reaction.activation + Math.max(reaction.deltaH, 0)) {
+            input = reaction.reactants;
+            output = reaction.products;
+        } else if (reaction.products.length === 1 && reaction.products[0] === this.type
+        && this.energy() > reaction.activation + Math.max(-reaction.deltaH, 0)) {
+            input = reaction.products;
+            output = reaction.reactants;
+        } else {
+            return;
+        }
+
+        // Remove this particle
+        particles = particles.filter(item => item !== this);
+        for (let product of output) {
+            let temp = new Particle(this.container, product);
+            particles.push(temp);
+        }
+    }
+
 }
 
-// Assuming a1 and a2 have two elements each
-function sameElements(a1, a2) {
-    return ((a1[0] == a2[0] && a1[1] == a2[1]) || (a1[0] == a2[1] && a1[1] == a2[0]));
+function same(a1, a2) {
+    if (a1.length !== a2.length) {
+        return false;
+    }
+    return ((a1[0] === a2[0] && a1[1] === a2[1]) || (a1[0] === a2[1] && a1[1] === a2[0]));
 }
