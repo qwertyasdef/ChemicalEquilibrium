@@ -70,15 +70,23 @@ p {
 /* The legend for the simulation */
 .legend {
     display: block;
-    width: 8%;
-    position: relative;
-    float: left;
+    width: 5em;
+    position: absolute;
     padding: 0em 0.5em;
     line-height: 2em;
     border-radius: 0.5em;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.5);
     color: white;
     margin: auto;
+}
+.legend > content {
+    display: none;
+}
+.legend:hover {
+    background-color: rgba(128, 128, 128, 0.75);
+}
+.legend:hover > content {
+    display: block;
 }
 .circle {
     display: inline-block;
@@ -90,7 +98,15 @@ p {
 /* The particle simulation */
 #simulation {
     display: block;
+    width: 100%;
     margin: auto;
+}
+
+form {
+    display: block;
+    margin: auto;
+    padding: 0.5em;
+    border: 1px solid black;
 }
 
 table {

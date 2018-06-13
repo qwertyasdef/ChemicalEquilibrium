@@ -71,19 +71,13 @@ class Particle {
                             n.y = (this.y + p.y) / 2;
                             n.vx = (this.m * this.vx + p.m * p.vx) / n.m;
                             n.vy = (this.m * this.vy + p.m * p.vy) / n.m;
-                            let factor = Math.sqrt(2 * (this.energy() + p.energy() - reaction.deltaH) / (n.m * (n.vx**2 + n.vy**2)));
+                            let factor = Math.sqrt(2 * (this.energy() + p.energy()) / (n.m * (n.vx**2 + n.vy**2)));
                             n.vx *= factor;
                             n.vy *= factor;
                             particles.push(n);
                         } else if (reaction.products.length === 2) {
                             this.setType(reaction.products[0]);
                             p.setType(reaction.products[1]);
-                            let dist = Math.random();
-                            while (this.energy() < reaction.deltaH * dist) {
-                                dist = Math.random();
-                            }
-                            this.v = Math.sqrt(2 * (this.energy() - reaction.deltaH * dist) / this.m);
-                            p.v = Math.sqrt(2 * (p.energy() - reaction.deltaH * (1 - dist)) / p.m);
                         }
                     }
                 }
@@ -106,8 +100,7 @@ class Particle {
                 p2.y = this.y + Math.random() * 2 * this.r - this.r;
                 p2.vx = (this.m * this.vx - p1.m * p1.vx) / p2.m;
                 p2.vy = (this.m * this.vy - p1.m * p1.vy) / p2.m;
-                let e2 = (this.energy() - decomposition.deltaH);
-                let factor = Math.sqrt(e2 / (p1.energy() + p2.energy()));
+                let factor = Math.sqrt(this.energy() / (p1.energy() + p2.energy()));
                 p1.vx *= factor;
                 p1.vy *= factor;
                 p2.vx *= factor;

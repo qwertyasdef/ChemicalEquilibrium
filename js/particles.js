@@ -1,23 +1,34 @@
-var particles;
+let particles;
+const backgroundColor = "blue";
+let background;
+let ctx;
+let frameID;
 
 window.onload = function() {
-    var background = document.getElementById("simulation");
-    var ctx = background.getContext("2d");
-    var backgroundColor = "blue";
+    background = document.getElementById("simulation");
+    ctx = background.getContext("2d");
+}
 
+function simulate() {
+    // Stop the previous simulation
+    if (frameID !== null) {
+        window.cancelAnimationFrame(frameID);
+    }
+    // Reset particles
     particles = [];
+    let container = {"width": background.width, "height": background.height};
     for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(background, ParticleTypes.A));
+        particles.push(new Particle(container, ParticleTypes.A));
     }
     for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(background, ParticleTypes.B));
+        particles.push(new Particle(container, ParticleTypes.B));
     }
     for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(background, ParticleTypes.C));
+        particles.push(new Particle(container, ParticleTypes.C));
     }
-    for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(background, ParticleTypes.D));
-    }
+    // for (let i = 0; i < 20; i++) {
+    //     particles.push(new Particle(background, ParticleTypes.D));
+    // }
 
     function update(time) {
         // Draw and update simulation
@@ -27,7 +38,7 @@ window.onload = function() {
             p.update(particles);
             p.draw(ctx);
         }
-        
+
         // Count particles
         let counts = [0, 0, 0, 0];
         for (let p of particles) {
@@ -47,10 +58,10 @@ window.onload = function() {
         document.getElementById("[C]").innerHTML = counts[2];
         document.getElementById("[D]").innerHTML = counts[3];
 
-        window.requestAnimationFrame(update);
+        frameID = window.requestAnimationFrame(update);
     }
 
-    window.requestAnimationFrame(update);
+    frameID = window.requestAnimationFrame(update);
 
 }
 

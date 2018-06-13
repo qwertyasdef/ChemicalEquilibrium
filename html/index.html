@@ -56,20 +56,36 @@
             </span>
             The value <span class="fraction">k<sub>1</sub><line></line>k<sub>2</sub></span> is a constant, which we call K<sub>eq</sub>.
         </p>
+
         <div id="simulation-container">
+
             <div id="sim-title">Reaction Simulator</div>
+
             <span class="legend">
                 <b>Legend:</b>
-                <br />
-                A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.5em;"></span>
-                <br />
-                B: <span class="circle" style="width: 1.5em; height: 1.5em; background-color: red; top: 0.5em; left: 0em;"></span>
-                <br />
-                C: <span class="circle" style="width: 1em; height: 1em; background-color: yellow; top: 0.25em; left: 0.25em;"></span>
-                <br />
-                D: <span class="circle" style="width: 1em; height: 1em; background-color: green; top: 0.25em; left: 0.25em;"></span>
+                <content>
+                    A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.5em;"></span>
+                    <br />
+                    B: <span class="circle" style="width: 1.5em; height: 1.5em; background-color: red; top: 0.5em; left: 0em;"></span>
+                    <br />
+                    C: <span class="circle" style="width: 1em; height: 1em; background-color: yellow; top: 0.25em; left: 0.25em;"></span>
+                    <br />
+                    D: <span class="circle" style="width: 1em; height: 1em; background-color: green; top: 0.25em; left: 0.25em;"></span>
+                </content>
             </span>
+
             <canvas id="simulation" width="640" height="360"></canvas>
+
+            <form>
+                Reaction:
+                <select name="reaction">
+                    <option value="pressure">A + B &#8644; C</option>
+                    <option value="temperature">A + B &#8644; C, &Delta;H < 0</option>
+                    <option value="concentration">A + B &#8644; C + D</option>
+                </select>
+                <button type="button" onclick="simulate()">Start</button>
+            </form>
+
             <table>
                 <tr>
                     <th>A</th>
@@ -90,6 +106,7 @@
                     <td id="[D]"></td>
                 </tr>
             </table>
+
         </div>
     </div>
 </body>
