@@ -98,3 +98,7 @@ table {
     margin-top: 1em;
     text-align: center;
 }
+
+th, td {
+    width: 14%;
+}
