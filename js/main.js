@@ -4,10 +4,10 @@ let background;
 let ctx;
 let frameID;
 
-const initEnergy = 500;
+const initEnergy = 5;
 let energy = initEnergy;
-const minEnergy = 125;
-const maxEnergy = 2000;
+const minEnergy = 1.25;
+const maxEnergy = 20;
 const multEnergy = 2;
 let particles;
 let reaction;
@@ -104,17 +104,17 @@ function simulate() {
 
 }
 
+// Returns the average energy of a particle
 function getEnergy() {
     let U = 0;
     for (let p of particles) {
         U += 1/2 * p.m * (p.vx**2 + p.vy**2);
     }
-    return U;
+    return U / particles.length;
 }
 
 // When an option increase/decrease arrow is clicked
 function option(variable, increase) {
-    console.log(variable + increase);
     switch (variable) {
         case "T":
             changeT(increase);
@@ -123,7 +123,7 @@ function option(variable, increase) {
             changeV(increase);
             break;
         default:
-            changeConcentration(variable, increse);
+            changeConcentration(variable, increase);
     }
 }
 
@@ -163,5 +163,36 @@ function changeV(increase) {
             container.width = minWidth;
             return;
         }
+    }
+}
+
+// Add or remove particles
+function changeConcentration(type, increase) {
+    type = type[1];
+    if (increase) {
+        let added = [];
+        let newE = 0;
+        for (let i = 0; i < 20; i++) {
+            let temp = new Particle(ParticleTypes[type]);
+            newE += temp.energy();
+            added.push(temp);
+        }
+        let factor = Math.sqrt(getEnergy() / (newE / added.length));
+        for (let p of added) {
+            p.vx *= factor;
+            p.vy *= factor;
+            particles.push(p);
+        }
+    } else {
+        let toRemove = [];
+        for (p of particles) {
+            if (p.type === ParticleTypes[type]) {
+                toRemove.push(p);
+                if (toRemove.length === 20) {
+                    break;
+                }
+            }
+        }
+        particles = particles.filter(item => toRemove.indexOf(item) === -1);
     }
 }
