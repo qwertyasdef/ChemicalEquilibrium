@@ -152,6 +152,9 @@ class Particle {
     }
 
     decompose() {
+        if (Math.random() > 0.01) {
+            return;
+        }
         let input;
         let output;
         if (reaction.reactants.length === 1 && reaction.reactants[0] === this.type
@@ -168,9 +171,22 @@ class Particle {
 
         // Remove this particle
         particles = particles.filter(item => item !== this);
+        let products = [];
         for (let product of output) {
             let temp = new Particle(this.container, product);
-            particles.push(temp);
+            temp.x = this.x + Math.random() * 10 - 5;
+            temp.y = this.y + Math.random() * 10 - 5;
+            products.push(temp);
+        }
+        let totalE = 0;
+        for (let p of products) {
+            totalE += p.energy();
+        }
+        let factor = Math.sqrt(this.energy() / totalE);
+        for (let p of products) {
+            p.vx *= factor;
+            p.vy *= factor;
+            particles.push(p);
         }
     }
 
