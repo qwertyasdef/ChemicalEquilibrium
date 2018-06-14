@@ -5,6 +5,7 @@ class Particle {
 
         this.container = container
         this.type = type;
+        this.reacted = false;
 
         // Properties of particle
         this.r = type.r;
@@ -24,6 +25,10 @@ class Particle {
     }
 
     update(others) {
+
+        if (this.reacted) {
+            return;
+        }
 
         let nextX = this.x + this.vx;
         let nextY = this.y + this.vy;
@@ -59,7 +64,9 @@ class Particle {
                 p.vx = newV2n * Math.cos(theta) + v2p * Math.sin(theta);
                 p.vy = newV2n * Math.sin(theta) - v2p * Math.cos(theta);
 
-                this.react(p);
+                if (this.react(p)) {
+                    break;
+                }
             }
 
         }
@@ -127,11 +134,12 @@ class Particle {
             input = reaction.products;
             output = reaction.reactants;
         } else {
-            return;
+            return false;
         }
 
         // Remove reacting particles
         particles = particles.filter(item => item !== this && item !== other);
+        other.reacted = true;
         let products = [];
         for (let product of output) {
             let temp = new Particle(this.container, product);
@@ -149,6 +157,8 @@ class Particle {
             p.vy *= factor;
             particles.push(p);
         }
+        
+        return true;
     }
 
     decompose() {

@@ -1,4 +1,4 @@
-var reactions = [
+const reactions = [
     {
         "reactants": [ParticleTypes.A, ParticleTypes.B],
         "products": [ParticleTypes.C],

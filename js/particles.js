@@ -15,18 +15,31 @@ function simulate() {
     if (frameID !== null) {
         window.cancelAnimationFrame(frameID);
     }
+    // Get new reaction
     let reactionIndex = document.getElementById("reaction").selectedIndex;
     reaction = reactions[reactionIndex];
+    // Update the table
+    if (reactionIndex === 0) {
+        let toHide = document.querySelectorAll("table#sim-data > tbody > tr > *:nth-child(n+6)");
+        for (let box of toHide) {
+            box.style.display = "none";
+        }
+    } else {
+        let toShow = document.querySelectorAll("table#sim-data > tbody > tr > *:nth-child(n+6)");
+        for (let box of toShow) {
+            box.style.display = "";
+        }
+    }
     // Reset particles
     particles = [];
     let container = {"width": background.width, "height": background.height};
     for (let type of reaction.reactants) {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             particles.push(new Particle(container, type));
         }
     }
     for (let type of reaction.products) {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             particles.push(new Particle(container, type));
         }
     }
