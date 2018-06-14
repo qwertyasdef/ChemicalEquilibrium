@@ -84,6 +84,56 @@
                     <option value="temperature">A + B &#8644; C + D, &Delta;H < 0</option>
                 </select>
                 <button type="button" onclick="simulate()">Start</button>
+                &emsp;
+                Options:
+                &ensp;
+                <div class="sim-opt">
+                    T
+                    <div class="sim-opt-btns">
+                        <button type="button" onclick="option('T', true)">&#x25B4;</button>
+                        <button type="button" onclick="option('T', false)">&#x25BE;</button>
+                    </div>
+                </div>
+                &ensp;
+                <div class="sim-opt">
+                    V
+                    <div class="sim-opt-btns">
+                        <button type="button" onclick="option('V', true)">&#x25B4;</button>
+                        <button type="button" onclick="option('V', false)">&#x25BE;</button>
+                    </div>
+                </div>
+                &ensp;
+                <div class="sim-opt">
+                    [A]
+                    <div class="sim-opt-btns">
+                        <button type="button" onclick="option('[A]', true)">&#x25B4;</button>
+                        <button type="button" onclick="option('[A]', false)">&#x25BE;</button>
+                    </div>
+                </div>
+                &ensp;
+                <div class="sim-opt">
+                    [B]
+                    <div class="sim-opt-btns">
+                        <button type="button" onclick="option('[B]', true)">&#x25B4;</button>
+                        <button type="button" onclick="option('[B]', false)">&#x25BE;</button>
+                    </div>
+                </div>
+                &ensp;
+                <div class="sim-opt">
+                    [C]
+                    <div class="sim-opt-btns">
+                        <button type="button" onclick="option('[C]', true)">&#x25B4;</button>
+                        <button type="button" onclick="option('[C]', false)">&#x25BE;</button>
+                    </div>
+                </div>
+                &ensp;
+                <div class="sim-opt">
+                    [D]
+                    <div class="sim-opt-btns">
+                        <button type="button" onclick="option('[D]', true)">&#x25B4;</button>
+                        <button type="button" onclick="option('[D]', false)">&#x25BE;</button>
+                    </div>
+                </div>
             </div>
 
             <table id="sim-data">

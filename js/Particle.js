@@ -1,9 +1,8 @@
 class Particle {
 
-    constructor(container, type) {
+    constructor(type) {
         const maxMomentum = 10;
 
-        this.container = container
         this.type = type;
         this.reacted = false;
 
@@ -13,8 +12,8 @@ class Particle {
         this.color = type.color;
 
         // Position of particle
-        this.x = Math.random() * this.container.width;
-        this.y = Math.random() * this.container.height;
+        this.x = Math.random() * container.width;
+        this.y = Math.random() * container.height;
 
         // Velocity of particle
         let v = Math.random() * maxMomentum / this.m;
@@ -81,8 +80,8 @@ class Particle {
         if (nextX < 0) {
             this.x = -this.x - this.vx;
             this.vx = -this.vx;
-        } else if (nextX > this.container.width) {
-            this.x = 2 * this.container.width - this.vx - this.x;
+        } else if (nextX > container.width) {
+            this.x = 2 * container.width - this.vx - this.x;
             this.vx = -this.vx;
         } else {
             this.x += this.vx;
@@ -91,8 +90,8 @@ class Particle {
         if (nextY < 0) {
             this.y = -this.y - this.vy;
             this.vy = -this.vy;
-        } else if (nextY > this.container.height) {
-            this.y = 2 * this.container.height - this.vy - this.y;
+        } else if (nextY > container.height) {
+            this.y = 2 * container.height - this.vy - this.y;
             this.vy = -this.vy;
         } else {
             this.y += this.vy;
@@ -142,7 +141,7 @@ class Particle {
         other.reacted = true;
         let products = [];
         for (let product of output) {
-            let temp = new Particle(this.container, product);
+            let temp = new Particle(product);
             temp.x = (this.x + other.x) / 2 + Math.random() * 10 - 5;
             temp.y = (this.y + other.y) / 2 + Math.random() * 10 - 5;
             products.push(temp);
@@ -157,14 +156,16 @@ class Particle {
             p.vy *= factor;
             particles.push(p);
         }
-        
+
         return true;
     }
 
     decompose() {
-        if (Math.random() > 0.01) {
+        // Chance to decompose
+        if (Math.random() > 0.1) {
             return;
         }
+
         let input;
         let output;
         if (reaction.reactants.length === 1 && reaction.reactants[0] === this.type
@@ -183,7 +184,7 @@ class Particle {
         particles = particles.filter(item => item !== this);
         let products = [];
         for (let product of output) {
-            let temp = new Particle(this.container, product);
+            let temp = new Particle(product);
             temp.x = this.x + Math.random() * 10 - 5;
             temp.y = this.y + Math.random() * 10 - 5;
             products.push(temp);

@@ -105,10 +105,28 @@ p {
 /* Container for the options */
 #sim-options {
     display: block;
-    margin: auto;
+    margin: 0em;
     padding: 0.5em;
+    border: 1px solid black;
 }
 
+/* Option buttons for the simulation */
+.sim-opt {
+    display: inline-block;
+}
+.sim-opt-btns {
+    display: inline-block;
+    width: 1em;
+    margin-top: -1em;
+    position: relative;
+    top: 0.35em;
+}
+.sim-opt-btns > button {
+    padding: 0em;
+    line-height: 0.5em;
+}
+
+/* The data table */
 #sim-data {
     width: 100%;
     margin-top: 1em;
