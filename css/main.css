@@ -35,10 +35,12 @@ body {
 .section:nth-of-type(even) {
     background-color: lightgray;
     color: black;
+    border-color: black;
 }
 .section:nth-of-type(odd) {
     background-color: rgb(32, 32, 32);
     color: lightgray;
+    border-color: lightgray;
 }
 
 /*========== Text styles ==========*/
@@ -56,9 +58,18 @@ p {
     padding: 0.5em 1em;
     line-height: 1.5em;
 }
+table {
+    color: inherit;
+    table-layout: fixed;
+    margin: 1em auto;
+}
+th, td {
+    padding: 0em 1em;
+}
 .equation {
     display: block;
-    padding: 1em 1em 1em 4em;
+    text-align: center;
+    padding: 1em;
 }
 .fraction {
     display: inline-block;
@@ -84,7 +95,12 @@ p {
     position: relative;
     left: -0.5em;
     /* Draw the bar */
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid;
+}
+/* RICE tables */
+.rice > tbody > tr > td:nth-child(n + 2) {
+    /* Center text for all columns except first */
+    text-align: center;
 }
 
 /*========== Simulation stuff ==========*/
