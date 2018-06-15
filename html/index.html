@@ -10,14 +10,20 @@
 </head>
 
 <body>
+    <img src="../assets/background.jpg" id="background">
 
-    <div id="content">
+    <div id="title-screen">
+        <div id="title">AP Chemistry Project 3</div>
+        <div id="names">Bicheng An, Charley Cai, Parsa Seyfourian, Brian Yao, Jay Zou</div>
+    </div>
+
+    <div class="section">
         <h1>Chemical equilibrium</h1>
         <p>
-            In chemistry, reactions don't always proceed to the end. Sometimes, they get stuck in the middle. This is called <b>equilibrium</b>,
-            and it happens for reactions that occur in both directions. When a reaction is in equilibrium, the concentrations of the compounds
-            remain the same. This is because the rate of the forward reaction equals the rate of the reverse reaction, so there is no net change
-            in concentration.
+            In chemistry, reactions don't always proceed to the end. Sometimes, they get stuck in the middle. This is called
+            <b>equilibrium</b>, and it happens for reactions that occur in both directions. When a reaction is in equilibrium, the
+            concentrations of the compounds remain the same. This is because the rate of the forward reaction equals the rate of the reverse
+            reaction, so there is no net change in concentration.
         </p>
         <p>
             The rate at which a reaction occurs depends on the concentration of the reactants, the temperature of the reaction, the physical
@@ -33,7 +39,8 @@
             <span class="equation">
                 k<sub>2</sub>[C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
             </span>
-            Since the forward rate and the reverse rate are equal at equilibrium, the ratio of the reverse rate to the forward rate is one to one.
+            Since the forward rate and the reverse rate are equal at equilibrium,
+            the ratio of the reverse rate to the forward rate is one to one.
             <span class="equation">
                 <span class="fraction">
                     k<sub>2</sub>[C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
@@ -56,27 +63,54 @@
             </span>
             The value <span class="fraction">k<sub>1</sub><line></line>k<sub>2</sub></span> is a constant, which we call K<sub>eq</sub>.
         </p>
+    </div>
 
-        <div id="sim-container">
+    <div class="section">
+        <h2>Le Chatelier's Principle</h2>
+        <p>
+        	This princple can be stated as: If a system at equilibrium is disturbed by a change in concentration,
+            pressure, or temperature, the system will shift its equilibrium position so as to counter the effect of the disturbance.
+        </p>
+        <p>
+        	<b>Concentration:</b> adding or removing a reactant or product. If a chemical system is already at equilibrium and the concentration
+            of any substance in the mixture is increased (either reactant or product), the system reacts to consume some of that substance.
+            Conversely, if the concentration of a substance is decreased, the system reacts to produce some of that substance.
+        </p>
+        <p>
+        	<b>Pressure:</b> changing the pressure by changing the volume. Reducing the volume of a gaseous equilibrium mixture causes the system
+            to shift in the direction that reduces the number of moles of gas. Increasing the volume of a gaseous equilibrium mixture causes
+            the sytem to shift in the direction that increases the number of moles of gas.
+        </p>
+        <p>
+        	<b>Temperature:</b> When the temperature of a system at equilibrium is increased, the system reacts as if we added a reactant to an
+            endothermic reaction or a product to an exothermic reaction. The equilibrium shifts in the direction that consumes the excess
+            reactant (or product), namely heat.
+        </p>
+        <p>
+        	<b>Catalyst:</b> A catalyst increases the rate at which equilibrium is achieved but does not change the composition of the equilibrium
+            mixture.
+        </p>
+    </div>
 
-            <div id="sim-title">Reaction Simulator</div>
+    <div class="section">
+        <h1>Reaction Simulator</h1>
 
-            <span class="legend">
-                <b>Legend:</b>
-                <content>
-                    A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.5em;"></span>
-                    <br />
-                    B: <span class="circle" style="width: 1.5em; height: 1.5em; background-color: red; top: 0.5em; left: 0em;"></span>
-                    <br />
-                    C: <span class="circle" style="width: 1em; height: 1em; background-color: yellow; top: 0.25em; left: 0.25em;"></span>
-                    <br />
-                    D: <span class="circle" style="width: 1em; height: 1em; background-color: green; top: 0.25em; left: 0.25em;"></span>
-                </content>
-            </span>
+        <div class="legend">
+            <b>Legend:</b>
+            <content>
+                A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.5em;"></span>
+                <br />
+                B: <span class="circle" style="width: 1.5em; height: 1.5em; background-color: red; top: 0.5em; left: 0em;"></span>
+                <br />
+                C: <span class="circle" style="width: 1em; height: 1em; background-color: yellow; top: 0.25em; left: 0.25em;"></span>
+                <br />
+                D: <span class="circle" style="width: 1em; height: 1em; background-color: green; top: 0.25em; left: 0.25em;"></span>
+            </content>
+        </div>
+        <canvas id="simulation" width="640" height="360"></canvas>
 
-            <canvas id="simulation" width="640" height="360"></canvas>
-
-            <div id="sim-options">
+        <div id="sim-controls">
+            <span id="sim-select">
                 Reaction:
                 <select id="reaction">
                     <option>A + B &#8644; C</option>
@@ -84,7 +118,8 @@
                     <option>A + B &#8644; C + D, &Delta;H < 0</option>
                 </select>
                 <button type="button" onclick="simulate()">Start</button>
-                &emsp;
+            </span>
+            <span id="sim-opts">
                 Options:
                 &ensp;
                 <div class="sim-opt">
@@ -134,31 +169,32 @@
                         <button type="button" onclick="option('[D]', false)">&#x25BE;</button>
                     </div>
                 </div>
-            </div>
-
-            <table id="sim-data">
-                <tr>
-                    <th>A</th>
-                    <th>+</th>
-                    <th>B</th>
-                    <th>&#8644;</th>
-                    <th>C</th>
-                    <th>+</th>
-                    <th>D</th>
-                </tr>
-                <tr>
-                    <td id="[A]">0</td>
-                    <td></td>
-                    <td id="[B]">0</td>
-                    <td></td>
-                    <td id="[C]">0</td>
-                    <td></td>
-                    <td id="[D]">0</td>
-                </tr>
-            </table>
-
+            </span>
         </div>
+
+        <table id="sim-data">
+            <tr>
+                <th>A</th>
+                <th>+</th>
+                <th>B</th>
+                <th>&#8644;</th>
+                <th>C</th>
+                <th>+</th>
+                <th>D</th>
+            </tr>
+            <tr>
+                <td id="[A]">0</td>
+                <td></td>
+                <td id="[B]">0</td>
+                <td></td>
+                <td id="[C]">0</td>
+                <td></td>
+                <td id="[D]">0</td>
+            </tr>
+        </table>
+
     </div>
+    
 </body>
 
 </html>

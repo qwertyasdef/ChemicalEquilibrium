@@ -1,32 +1,66 @@
-/* The gray box that contains everything */
-#content {
-    width: 50%;
-    margin: auto;
-    padding: 6em;
-    border-radius: 3em;
-    background: rgba(196, 196, 196, 0.75);
+/*========== Title screen ==========*/
+body {
+    margin: 0em;
+}
+#background {
+    margin: 0em;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -2;
+}
+#title-screen {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#title {
+    color: gold;
+    position: relative;
+    top: 40vh;
+    text-align: center;
+    font-size: 5em;
+}
+#names {
+    color: white;
+    position: relative;
+    top: 45vh;
+    text-align: center;
+    vertical-align: bottom;
 }
 
-/* The title */
+/*========== Section styles ==========*/
+.section {
+    width: calc(100% - 40em);
+    padding: 2em 20em;
+}
+.section:nth-of-type(even) {
+    background-color: lightgray;
+    color: black;
+}
+.section:nth-of-type(odd) {
+    background-color: rgb(32, 32, 32);
+    color: lightgray;
+}
+
+/*========== Text styles ==========*/
+
 h1 {
-    font-size: 30px;
-    color: blue;
+    margin: 1em;
+    font-size: 3em;
     text-align: center;
 }
-
-/* Paragraphs */
+h2 {
+    font-size: 2em;
+}
 p {
     text-align: justify;
-    padding: 0.5em;
+    padding: 0.5em 1em;
 }
-
-/* Equations */
 .equation {
     display: block;
     padding: 1em 1em 1em 4em;
 }
-
-/* Fractions */
 .fraction {
     display: inline-block;
     /* Pad the left and right so the bar doesn't overlap other things */
@@ -53,23 +87,9 @@ p {
     border-bottom: 1px solid black;
 }
 
-#sim-container {
-    border-radius: 1em;
-    background-color: darkgray; /* Actually lighter than gray */
-    padding: 0.5em;
-    border: 0.5em solid gray;
-}
+/*========== Simulation stuff ==========*/
 
-#sim-title {
-    text-align: center;
-    font-size: 2em;
-    padding-bottom: 0.5em;
-    font-weight: bold;
-}
-
-/* The legend for the simulation */
 .legend {
-    display: block;
     width: 5em;
     position: absolute;
     padding: 0em 0.5em;
@@ -97,20 +117,19 @@ p {
 
 /* The particle simulation */
 #simulation {
-    display: block;
     width: 100%;
     margin: auto;
 }
 
 /* Container for the options */
-#sim-options {
-    display: block;
+#sim-controls {
     margin: 0em;
     padding: 0.5em;
-    border: 1px solid black;
 }
-
 /* Option buttons for the simulation */
+#sim-opts {
+    float: right;
+}
 .sim-opt {
     display: inline-block;
 }
