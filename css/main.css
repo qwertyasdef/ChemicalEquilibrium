@@ -56,6 +56,7 @@ h2 {
 p {
     text-align: justify;
     padding: 0.5em 1em;
+    line-height: 1.5em;
 }
 .equation {
     display: block;
@@ -63,9 +64,10 @@ p {
 }
 .fraction {
     display: inline-block;
-    /* Pad the left and right so the bar doesn't overlap other things */
-    padding: 0em 0.5em;
-    line-height: 1.5em;
+    /* Leave space on the left and right so the bar doesn't overlap other things */
+    margin: 0em 0.75em;
+    line-height: 1em;
+    font-size: 0.8em;
     /* Push the fraction down to match the text, then reduce the space at the
     top to move everything back up
         a           a
@@ -95,7 +97,7 @@ p {
     padding: 0em 0.5em;
     line-height: 2em;
     border-radius: 0.5em;
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(64, 64, 64, 0.5);
     color: white;
     margin: auto;
 }
@@ -103,7 +105,7 @@ p {
     display: none;
 }
 .legend:hover {
-    background-color: rgba(128, 128, 128, 0.75);
+    background-color: rgba(64, 64, 64, 0.75);
 }
 .legend:hover > content {
     display: block;

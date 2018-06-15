@@ -19,6 +19,8 @@ const stepWidth = 100;
 window.onload = function() {
     background = document.getElementById("simulation");
     ctx = background.getContext("2d");
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, background.width, background.height);
 }
 
 function simulate() {
@@ -46,12 +48,12 @@ function simulate() {
     container = {"width": background.width, "height": background.height};
     // Add particles
     for (let type of reaction.reactants) {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 30; i++) {
             particles.push(new Particle(type));
         }
     }
     for (let type of reaction.products) {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 30; i++) {
             particles.push(new Particle(type));
         }
     }

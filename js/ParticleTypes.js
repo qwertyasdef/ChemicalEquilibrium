@@ -1,6 +1,6 @@
 const ParticleTypes = {
-    "A": {"r": 5, "m": 1, "color": "white"},
-    "B": {"r": 10, "m": 8, "color": "red"},
-    "C": {"r": 8, "m": 6, "color": "yellow"},
-    "D": {"r": 7, "m": 3, "color": "green"},
+    "A": {"r": 3, "m": 1, "color": "white"},
+    "B": {"r": 6, "m": 4, "color": "red"},
+    "C": {"r": 5, "m": 3, "color": "yellow"},
+    "D": {"r": 4, "m": 2, "color": "green"},
 };
