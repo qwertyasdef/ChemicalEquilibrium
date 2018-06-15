@@ -29,8 +29,8 @@ body {
 
 /*========== Section styles ==========*/
 .section {
-    width: calc(100% - 40em);
-    padding: 2em 20em;
+    width: 60%;
+    padding: 2em 20%;
 }
 .section:nth-of-type(even) {
     background-color: lightgray;
