@@ -6,15 +6,15 @@ let frameID;
 
 const initEnergy = 5;
 let energy = initEnergy;
-const minEnergy = 1.25;
-const maxEnergy = 20;
-const multEnergy = 2;
+const minEnergy = 5 / 3 / 3;
+const maxEnergy = 5 * 3 * 3;
+const multEnergy = 3;
 let particles;
 let reaction;
 let container;
-const minWidth = 40;
-const maxWidth = 640;
-const stepWidth = 100;
+const minWidth = 200;
+const maxWidth = 800;
+const stepWidth = 200;
 
 window.onload = function() {
     background = document.getElementById("simulation");
@@ -130,18 +130,23 @@ function option(variable, increase) {
 }
 
 // Change the temperature/energy of particles
+let options = document.getElementsByClassName("sim-opt");
 function changeT(increase) {
+    let buttons = options[0].getElementsByTagName("button");
+    buttons[0].disabled = false;
+    buttons[1].disabled = false;
+    
     if (increase) {
         energy *= multEnergy;
-        if (energy > maxEnergy) {
+        if (energy >= maxEnergy) {
             energy = maxEnergy;
-            return;
+            buttons[0].disabled = true;
         }
     } else {
         energy /= multEnergy;
-        if (energy < minEnergy) {
+        if (energy <= minEnergy) {
             energy = minEnergy;
-            return;
+            buttons[1].disabled = true;
         }
     }
     let factor = Math.sqrt(energy / getEnergy());
@@ -153,17 +158,21 @@ function changeT(increase) {
 
 // Change the volume of the container
 function changeV(increase) {
+    let buttons = options[1].getElementsByTagName("button");
+    buttons[0].disabled = false;
+    buttons[1].disabled = false;
+
     if (increase) {
         container.width += stepWidth;
-        if (container.width > maxWidth) {
+        if (container.width >= maxWidth) {
             container.width = maxWidth;
-            return;
+            buttons[0].disabled = true;
         }
     } else {
         container.width -= stepWidth;
-        if (container.width < minWidth) {
+        if (container.width <= minWidth) {
             container.width = minWidth;
-            return;
+            buttons[1].disabled = true;
         }
     }
 }
@@ -171,6 +180,7 @@ function changeV(increase) {
 // Add or remove particles
 function changeConcentration(type, increase) {
     type = type[1];
+
     if (increase) {
         let added = [];
         let newE = 0;
