@@ -1,4 +1,4 @@
 # Chem-project-3
-by Bicheng An, Brian Yao, and Jay Zou
+by Bicheng An, Charley Cai, Parsa Seyfourian, Brian Yao, and Jay Zou
 
-An interactive (hopefully) website about chemical equilibrium.
+An interactive website about chemical equilibrium.
