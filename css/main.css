@@ -1,12 +1,14 @@
 /*========== Title screen ==========*/
 body {
     margin: 0em;
+    font-family: Times;
+    font-size: 1.2em;
 }
 .header {
     position: fixed;
     z-index: 1;
     width: 100%;
-    height: 3em;
+    height: 2em;
     margin: 0em;
     padding: 0em;
     background-color: rgba(64, 64, 64, 0.75);
@@ -18,7 +20,8 @@ body {
 }
 .header > li > a {
     display: block;
-    padding: 1em 2em;
+    height: 100%;
+    padding: 0.5em 1em;
     text-decoration: none;
 }
 .header > li:hover {
@@ -88,11 +91,22 @@ a {
 }
 table {
     color: inherit;
+    font-size: inherit;
     table-layout: fixed;
     margin: 1em auto;
 }
 th, td {
     padding: 0em 1em;
+}
+sup, sub {
+    vertical-align: middle;
+    position: relative;
+}
+sup {
+    top: -0.4em;
+}
+sub {
+    bottom: -0.2em;
 }
 .equation {
     display: block;
@@ -112,14 +126,15 @@ th, td {
         b = 1       b
     */
     position: relative;
-    top: 0.75em;
-    margin-top: -0.75em;
+    top: 0.6em;
+    margin-top: -0.6em;
 }
 /* The bar in the middle of a fraction */
 .fraction > line {
     display: block;
     /* Make the bar slightly wider than the fraction, then center it */
     width: calc(100% + 1em);
+    margin: 0.1em 0em;
     position: relative;
     left: -0.5em;
     /* Draw the bar */
