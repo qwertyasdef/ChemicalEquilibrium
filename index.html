@@ -13,387 +13,399 @@
 <body>
     <img src="assets/background.jpg" id="background">
 
+    <ul class="header">
+        <li><a href="#">Home</a></li>
+        <li><a href="#chemical-equilibrium">Chemical Equilibrium</a></li>
+        <li><a href="#common-uses-for-keq">Common uses for K<sub>eq</sub></a></li>
+        <li><a href="#le-chateliers-principle">Le Chatelier's principle</a></li>
+        <li><a href="#industrial-applications">Industrial applications</a></li>
+        <li><a href="#reaction-simulator">Reaction Simulator</a></li>
+    </ul>
+
     <div id="title-screen">
         <div id="title">AP Chemistry Project 3</div>
         <div id="names">Bicheng An, Brian Yao, Jay Zou</div>
     </div>
 
-    <div class="section">
-        <h1>Chemical equilibrium</h1>
-        <p>
-            In chemistry, reactions don't always proceed to the end. Sometimes, they get stuck in the middle. This is called
-            <b>equilibrium</b>, and it happens for reactions that occur in both directions. When a reaction is in equilibrium, the
-            concentrations of the compounds remain the same. This is because the rate of the forward reaction equals the rate of the
-            reverse reaction, so there is no net change in concentration.
-        </p>
-        <p>
-            The rate at which a reaction occurs depends on the concentration of the reactants, the temperature of the reaction, the
-            physical state of the reactants, and the presence of a catalyst. For the one-step reaction
-            <span class="equation">
-                <i>n</i>A + <i>m</i>B &#8644; <i>p</i>C + <i>q</i>D
-            </span>
-            where A, B, C, and D are all gases or solutions, the forward rate can be written as
-            <span class="equation">
-                k<sub>1</sub>[A]<sup><i>n</i></sup>[B]<sup><i>m</i></sup>
-            </span>
-            and the reverse rate as
-            <span class="equation">
-                k<sub>2</sub>[C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
-            </span>
-            Since the forward rate and the reverse rate are equal at equilibrium, the ratio of the reverse rate to the forward rate is
-            one to one. From this, we can rearrange to find
-            <span class="equation">
-                <span class="fraction">
-                    k<sub>2</sub>[C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
-                    <line></line>
+    <div>
+        <div class="section" id="chemical-equilibrium">
+            <h1>Chemical Equilibrium</h1>
+            <p>
+                In chemistry, reactions don't always proceed to the end. Sometimes, they get stuck in the middle. This is called
+                <b>equilibrium</b>, and it happens for reactions that occur in both directions. When a reaction is in equilibrium, the
+                concentrations of the compounds remain the same. This is because the rate of the forward reaction equals the rate of the
+                reverse reaction, so there is no net change in concentration.
+            </p>
+            <p>
+                The rate at which a reaction occurs depends on the concentration of the reactants, the temperature of the reaction, the
+                physical state of the reactants, and the presence of a catalyst. For the one-step reaction
+                <span class="equation">
+                    <i>n</i>A + <i>m</i>B &#8644; <i>p</i>C + <i>q</i>D
+                </span>
+                where A, B, C, and D are all gases or solutions, the forward rate can be written as
+                <span class="equation">
                     k<sub>1</sub>[A]<sup><i>n</i></sup>[B]<sup><i>m</i></sup>
                 </span>
-                = 1
-                <br /><br />
-                <span class="fraction">
-                    [C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
-                    <line></line>
-                    [A]<sup><i>n</i></sup>[B]<sup><i>m</i></sup>
+                and the reverse rate as
+                <span class="equation">
+                    k<sub>2</sub>[C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
                 </span>
-                =
-                <span class="fraction">
-                    k<sub>1</sub>
-                    <line></line>
-                    k<sub>2</sub>
+                Since the forward rate and the reverse rate are equal at equilibrium, the ratio of the reverse rate to the forward rate is
+                one to one. From this, we can rearrange to find
+                <span class="equation">
+                    <span class="fraction">
+                        k<sub>2</sub>[C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
+                        <line></line>
+                        k<sub>1</sub>[A]<sup><i>n</i></sup>[B]<sup><i>m</i></sup>
+                    </span>
+                    = 1
+                    <br /><br />
+                    <span class="fraction">
+                        [C]<sup><i>p</i></sup>[D]<sup><i>q</i></sup>
+                        <line></line>
+                        [A]<sup><i>n</i></sup>[B]<sup><i>m</i></sup>
+                    </span>
+                    =
+                    <span class="fraction">
+                        k<sub>1</sub>
+                        <line></line>
+                        k<sub>2</sub>
+                    </span>
                 </span>
-            </span>
-            The expression on the left is called the <b>equilibrium expression</b>, and the value on the right,
-            <span class="fraction">k<sub>1</sub><line></line>k<sub>2</sub></span> is a constant, which we call the
-            <b>equilibrium constant</b>, or K<sub>eq</sub>. The equilibrium constant does <b>not</b> depend on the concentration
-            of any species in the reaction; it <b>does</b> change with temperature, however. Also, it is important to note that
-            the equilibrium expression is only equal to the equilibrium constant when the reaction has reached equilibrium.
-        </p>
-        <p>
-            In general, to find the equilibrium expression for a reaction, take the concentration of each of the products raised
-            to the power of its coefficient and multiply them together, then divide by the concentrations of the reactants raised to
-            the power of their coefficients. However, solids and pure liquids are <b>not</b> included in the equilibrium expression.
-            If you wouldn't include something in the rate law, then don't include it in the equilibrium expression. If none of the
-            products or none of the reactants are included, then use 1 for the numerator or denominator of the expression.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Common uses for K<sub>eq</sub></h2>
-        <p>
-            Ok, we've seen that equilibrium reactions have equilibrium constants associated with them, but what are they good for?
-        </p>
-        <p>
-            One use for K<sub>eq</sub> is to see which way a reaction will proceed. Given a reaction and the concentration of all its
-            products and reactants, we can plug them in to the equilibrium expression. The result is <b>not</b> K<sub>eq</sub>, because
-            the reaction is not at equilibrium. Instead, we call this value Q, the <b>reaction quotient</b>. We can compare Q to
-            K<sub>eq</sub> to determine which way the reaction will go.
-            <table>
-                <tr>
-                    <th>Q &lt; K<sub>eq</sub></th>
-                    <th>Q = K<sub>eq</sub></th>
-                    <th>Q &gt; K<sub>eq</sub></th>
-                </tr>
-                <tr>
-                    <td>Form products</td>
-                    <td>At equilibrium</td>
-                    <td>Form reactants</td>
-                </tr>
-            </table>
-            The reaction will always proceed in the way that makes Q approach K<sub>eq</sub>.
-        </p>
-        <p>
-            Another use for K<sub>eq</sub> is to calculate the amount of product formed by an equilibrium reaction. Given the initial
-            concentrations of all species and the value of K<sub>eq</sub>, we can create a system of equations to solve for the final
-            concentrations. For example, consider the following reaction:
-            <span class="equation">
-                H<sub>2</sub>(g) + I<sub>2</sub>(g) &#8644; 2HI(g), &emsp; K<sub>eq</sub> = 2.9 &#0215; 10<sup>-1</sup> at 300K
-            </span>
-            If we start with [H<sub>2</sub>] = 0.100M, [I<sub>2</sub>] = 0.100M, and [HI] = 0.000M, we can create a RICE table.
-            <table class="rice">
-                <tr>
-                    <td><b>R</b>eaction</td>
-                    <td>H<sub>2</sub>(g)</td>
-                    <td>+</td>
-                    <td>I<sub>2</sub>(g)</td>
-                    <td>&#8644;</td>
-                    <td>2HI(g)</td>
-                </tr>
-                <tr>
-                    <td><b>I</b>nitial</td>
-                    <td>0.100M</td>
-                    <td></td>
-                    <td>0.100M</td>
-                    <td></td>
-                    <td>0.000M</td>
-                </tr>
-                <tr>
-                    <td><b>C</b>hange</td>
-                    <td>-<i>x</i></td>
-                    <td></td>
-                    <td>-<i>x</i></td>
-                    <td></td>
-                    <td>+2<i>x</i></td>
-                </tr>
-                <tr>
-                    <td><b>E</b>quilibrium</td>
-                    <td>0.100M - <i>x</i></td>
-                    <td></td>
-                    <td>0.100M - <i>x</i></td>
-                    <td></td>
-                    <td>2<i>x</i></td>
-                </tr>
-            </table>
-            Because we don't know how much of the reactants will be used, we use the variable <i>x</i> to represent the change in
-            concentration. We do know the ratio of the changes from the balanced equation, so we can write all the changes in terms
-            of <i>x</i>. To fill in the equilibrium row, we simply add the changes to the initial concentrations. Then, we can plug
-            these values in to the equilibrium expression and solve for <i>x</i>.
-            <span class="equation">
-                K<sub>eq</sub> =
-                <span class="fraction">
-                    [HI]<sup>2</sup>
-                    <line></line>
-                    [H<sub>2</sub>][I<sub>2</sub>]
-                </span>
-                <br />
-                <br />
-                2.9 &#0215; 10<sup>-1</sup> =
-                <span class="fraction">
-                    (2<i>x</i>)<sup>2</sup>
-                    <line></line>
-                    (0.100M - <i>x</i>)(0.100M - <i>x</i>)
-                </span>
-                <br />
-                <br />
-                5.4 &#0215; 10<sup>-1</sup> =
-                <span class="fraction">
-                    2<i>x</i>
-                    <line></line>
-                    0.100M - <i>x</i>
-                </span>
-                <br />
-                <br />
-                <i>x</i> = 2.7 &#0215; 10<sup>-2</sup>
-            </span>
-            In this case, the final concentration of HI is 2<i>x</i>, or 5.4 &#0215; 10<sup>-2</sup> M.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Le Chatelier's Principle</h2>
-        <p>
-            Systems at equilibrium are cool and all, but what happens when we alter them? Le Chatelier's principle can tell us the
-            answer. It states that if a system at equilibrium is disturbed, the system will shift its equilibrium position so as to
-            counter the effect of the disturbance. This can be explained in terms of <b>kinetic molecular theory</b> by examining the
-            effect that each disturbance has on the collisions taking place in the reaction, and how that affects the forwards and
-            backwards reaction rates of the equilibrium reaction. Le Chatelier's principle can be applied to the following four factors.
-        </p>
-        <ul>
-            <li>
-            	<b>Concentration:</b>
-                <p>
-                    Adding or removing a reactant or product. If a chemical system is already at equilibrium and the
-                    concentration of any substance in the mixture is increased (either reactant or product), the system
-                    reacts to consume some of that substance. Conversely, if the concentration of a substance is decreased,
-                    the system reacts to produce some of that substance.
-                </p>
-                <p>
-                    By adding more reactants or products to the reaction, the frequency of collisions between reactant or product
-                    molecules increases. This gives more opportunities for the forwards or backwards reaction to occur, speeding
-                    up the respective rate and shifting equilibrium the other way. Similarly, reducing the concentration reduces
-                    the number of collisions and slows down the rate in one direction causing the equilibrium to shift towards
-                    the slower rate.
-                </p>
-            </li>
-            <li>
-            	<b>Pressure:</b>
-                <p>
-                    Changing the pressure by changing the volume. Reducing the volume of a gaseous equilibrium mixture causes
-                    the system to shift in the direction that reduces the number of moles of gas. Increasing the volume of a
-                    gaseous equilibrium mixture causes the sytem to shift in the direction that increases the number of moles
-                    of gas. Note that changing the total pressure by adding a non-reacting gas to the system does <b>not</b>
-                    affect equilibrium. This is because the partial pressure of the reactants and products remain unchanged.
-                </p>
-                <p>
-                    When the partial pressures of the reacting gases are increased, the number of collisions for both products
-                    and reactants increases, but it increases more for the side with more moles of gas. This increases the
-                    reaction rate for the side with more moles of gas and causes the equilibrium to shift to the other side.
-                    Decreasing the pressure has the opposite effect. Adding a non-reacting gas has no effect because it changes
-                    the rate of collisions between both the reactants and the products by the same amount, leading to no net
-                    shift.
-                </p>
-            </li>
-            <li>
-                <b>Temperature:</b>
-                <p>
-                	Increasing or decreasing the reaction temperature. When the temperature of a system at equilibrium is
-                    increased, the system reacts as if we added a reactant to an endothermic reaction or a product to an
-                    exothermic reaction. The equilibrium shifts in the direction that consumes the excess reactant (or product),
-                    namely heat.
-                </p>
-                <p>
-                    When the temperature increases, the average kinetic energy of all particles is higher, so the number of
-                    collisions in which the particles have enough energy to react is higher. This speeds up the rate in both
-                    directions, but the increase is greater for endothermic reactions than exothermic reactions so the
-                    equilibrium shifts to consume heat. The opposite is true for decreasing the temperature.
-                </p>
-            </li>
-            <li>
-                <b>Catalyst:</b>
-                <p>
-                	Adding or removing a catalyst. A catalyst increases the rate at which equilibrium is achieved but does
-                    not change the composition of the equilibrium mixture.
-                </p>
-                <p>
-                    A catalyst works by lowering the activation energy of a reaction so that more collisions are energetic
-                    enough to react, but it does so equally in both directions. Both rates increase the same amount, so there
-                    is no net shift in equilibrium.
-                </p>
-            </li>
-        </ul>
-        <p>
-            You can explore these factors yourself in the reaction simulator below.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Industrial applications</h2>
-        <p>
-            For industrial processes, it is important to maximize the concentration of the desired products and minimise the
-            'leftover' reactants. Le Chatelier's Principle and the principles of reaction kinetics can both be used to design the
-            best reaction conditions to give the highest possible yield of product in an economic way.
-        </p>
-        <p>
-            Ideas on 'economic production' are described in most detail for the Haber Synthesis of ammonia, but equilibrium and
-            kinetic factors are continually mentioned in the other examples too.
-        </p>
-        <p>
-            The Haber process, developed by Fritz Haber and Carl Bosch, is an artificial nitrogen fixation process and is the main
-            industrial procedure for the production of ammonia today. The process converts atmospheric nitrogen (N<sub>2</sub>) to
-            ammonia (NH<sub>3</sub>) by a reaction with hydrogen (H<sub>2</sub>) using a metal catalyst under high temperatures and
-            pressures. Although the Haber process is mainly used to produce fertilizer today, during World War I it provided Germany
-            with a source of ammonia for the production of explosives, compensating for the Allied trade blockade on Chilean saltpeter.
-        </p>
-        <p>
-            <span class="equation">
-                N<sub>2</sub>(g) + 3H<sub>2</sub>(g) &#8644; 2NH<sub>3</sub>(g), &emsp; &Delta;H = -92 kJ/mol
-            </span>
-            The Haber process incorporates
-        </p>
-        <ul>
-            <li>a high temperature &#0151; about 450&#8451;</li>
-            <li>a high pressure &#0151; about 200 atmospheres (200 times normal pressure)</li>
-            <li>an iron catalyst</li>
-        </ul>
-        <p>
-            The pressure and catalyst make sense in order to maximize ammonia output rate, just like what the le Chatelier's Principle
-            states. However, the high temperature may seem odd because the reaction is exothermic. While a lower temperature would result
-            in a higher concentration of ammonia at equilibrium, it would also dramatically slow down the rate at which equilibrium
-            is reached. The temperature 450&#8451; happens to be a compromise between increasing the equilibrium concentration of
-            ammonia while keeping the reaction rate fast enough to be practical.
-        </p>
-
-    </div>
-
-    <div class="section">
-        <h1>Reaction Simulator</h1>
-
-        <div class="legend">
-            <b>Legend:</b>
-            <content>
-                A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.25em;"></span>
-                <br />
-                B: <span class="circle" style="width: 1em; height: 1em; background-color: red; top: 0.25em; left: 0em;"></span>
-                <br />
-                C: <span class="circle" style="width: 0.83em; height: 0.83em; background-color: yellow; top: 0.17em; left: 0.08em;"></span>
-                <br />
-                D: <span class="circle" style="width: 0.67em; height: 0.67em; background-color: green; top: 0.08em; left: 0.17em;"></span>
-            </content>
-        </div>
-        <canvas id="simulation" width="800" height="500"></canvas>
-
-        <div id="sim-controls">
-            <span id="sim-select">
-                Reaction:
-                <select id="reaction">
-                    <option>A + B &#8644; C</option>
-                    <option>A + B &#8644; C + D</option>
-                    <option>A + B &#8644; C + D, &Delta;H < 0</option>
-                </select>
-                <button type="button" onclick="simulate()">Start</button>
-            </span>
-            <span id="sim-opts">
-                Options:
-                &ensp;
-                <div class="sim-opt">
-                    T
-                    <div class="sim-opt-btns">
-                        <button type="button" onclick="option('T', true)">&#x25B4;</button>
-                        <button type="button" onclick="option('T', false)">&#x25BE;</button>
-                    </div>
-                </div>
-                &ensp;
-                <div class="sim-opt">
-                    V
-                    <div class="sim-opt-btns">
-                        <button type="button" onclick="option('V', true)">&#x25B4;</button>
-                        <button type="button" onclick="option('V', false)">&#x25BE;</button>
-                    </div>
-                </div>
-                &ensp;
-                <div class="sim-opt">
-                    [A]
-                    <div class="sim-opt-btns">
-                        <button type="button" onclick="option('[A]', true)">&#x25B4;</button>
-                        <button type="button" onclick="option('[A]', false)">&#x25BE;</button>
-                    </div>
-                </div>
-                &ensp;
-                <div class="sim-opt">
-                    [B]
-                    <div class="sim-opt-btns">
-                        <button type="button" onclick="option('[B]', true)">&#x25B4;</button>
-                        <button type="button" onclick="option('[B]', false)">&#x25BE;</button>
-                    </div>
-                </div>
-                &ensp;
-                <div class="sim-opt">
-                    [C]
-                    <div class="sim-opt-btns">
-                        <button type="button" onclick="option('[C]', true)">&#x25B4;</button>
-                        <button type="button" onclick="option('[C]', false)">&#x25BE;</button>
-                    </div>
-                </div>
-                &ensp;
-                <div class="sim-opt">
-                    [D]
-                    <div class="sim-opt-btns">
-                        <button type="button" onclick="option('[D]', true)">&#x25B4;</button>
-                        <button type="button" onclick="option('[D]', false)">&#x25BE;</button>
-                    </div>
-                </div>
-            </span>
+                The expression on the left is called the <b>equilibrium expression</b>, and the value on the right,
+                <span class="fraction">k<sub>1</sub><line></line>k<sub>2</sub></span> is a constant, which we call the
+                <b>equilibrium constant</b>, or K<sub>eq</sub>. The equilibrium constant does <b>not</b> depend on the concentration
+                of any species in the reaction; it <b>does</b> change with temperature, however. Also, it is important to note that
+                the equilibrium expression is only equal to the equilibrium constant when the reaction has reached equilibrium.
+            </p>
+            <p>
+                In general, to find the equilibrium expression for a reaction, take the concentration of each of the products raised
+                to the power of its coefficient and multiply them together, then divide by the concentrations of the reactants raised to
+                the power of their coefficients. However, solids and pure liquids are <b>not</b> included in the equilibrium expression.
+                If you wouldn't include something in the rate law, then don't include it in the equilibrium expression. If none of the
+                products or none of the reactants are included, then use 1 for the numerator or denominator of the expression.
+            </p>
         </div>
 
-        <table id="sim-data">
-            <tr>
-                <th>A</th>
-                <th>+</th>
-                <th>B</th>
-                <th>&#8644;</th>
-                <th>C</th>
-                <th>+</th>
-                <th>D</th>
-            </tr>
-            <tr>
-                <td id="[A]">0</td>
-                <td></td>
-                <td id="[B]">0</td>
-                <td></td>
-                <td id="[C]">0</td>
-                <td></td>
-                <td id="[D]">0</td>
-            </tr>
-        </table>
+        <div class="section" id="common-uses-for-keq">
+            <h2>Common uses for K<sub>eq</sub></h2>
+            <p>
+                Ok, we've seen that equilibrium reactions have equilibrium constants associated with them, but what are they good for?
+            </p>
+            <p>
+                One use for K<sub>eq</sub> is to see which way a reaction will proceed. Given a reaction and the concentration of all its
+                products and reactants, we can plug them in to the equilibrium expression. The result is <b>not</b> K<sub>eq</sub>, because
+                the reaction is not at equilibrium. Instead, we call this value Q, the <b>reaction quotient</b>. We can compare Q to
+                K<sub>eq</sub> to determine which way the reaction will go.
+                <table>
+                    <tr>
+                        <th>Q &lt; K<sub>eq</sub></th>
+                        <th>Q = K<sub>eq</sub></th>
+                        <th>Q &gt; K<sub>eq</sub></th>
+                    </tr>
+                    <tr>
+                        <td>Form products</td>
+                        <td>At equilibrium</td>
+                        <td>Form reactants</td>
+                    </tr>
+                </table>
+                The reaction will always proceed in the way that makes Q approach K<sub>eq</sub>.
+            </p>
+            <p>
+                Another use for K<sub>eq</sub> is to calculate the amount of product formed by an equilibrium reaction. Given the initial
+                concentrations of all species and the value of K<sub>eq</sub>, we can create a system of equations to solve for the final
+                concentrations. For example, consider the following reaction:
+                <span class="equation">
+                    H<sub>2</sub>(g) + I<sub>2</sub>(g) &#8644; 2HI(g), &emsp; K<sub>eq</sub> = 2.9 &#0215; 10<sup>-1</sup> at 300K
+                </span>
+                If we start with [H<sub>2</sub>] = 0.100M, [I<sub>2</sub>] = 0.100M, and [HI] = 0.000M, we can create a RICE table.
+                <table class="rice">
+                    <tr>
+                        <td><b>R</b>eaction</td>
+                        <td>H<sub>2</sub>(g)</td>
+                        <td>+</td>
+                        <td>I<sub>2</sub>(g)</td>
+                        <td>&#8644;</td>
+                        <td>2HI(g)</td>
+                    </tr>
+                    <tr>
+                        <td><b>I</b>nitial</td>
+                        <td>0.100M</td>
+                        <td></td>
+                        <td>0.100M</td>
+                        <td></td>
+                        <td>0.000M</td>
+                    </tr>
+                    <tr>
+                        <td><b>C</b>hange</td>
+                        <td>-<i>x</i></td>
+                        <td></td>
+                        <td>-<i>x</i></td>
+                        <td></td>
+                        <td>+2<i>x</i></td>
+                    </tr>
+                    <tr>
+                        <td><b>E</b>quilibrium</td>
+                        <td>0.100M - <i>x</i></td>
+                        <td></td>
+                        <td>0.100M - <i>x</i></td>
+                        <td></td>
+                        <td>2<i>x</i></td>
+                    </tr>
+                </table>
+                Because we don't know how much of the reactants will be used, we use the variable <i>x</i> to represent the change in
+                concentration. We do know the ratio of the changes from the balanced equation, so we can write all the changes in terms
+                of <i>x</i>. To fill in the equilibrium row, we simply add the changes to the initial concentrations. Then, we can plug
+                these values in to the equilibrium expression and solve for <i>x</i>.
+                <span class="equation">
+                    K<sub>eq</sub> =
+                    <span class="fraction">
+                        [HI]<sup>2</sup>
+                        <line></line>
+                        [H<sub>2</sub>][I<sub>2</sub>]
+                    </span>
+                    <br />
+                    <br />
+                    2.9 &#0215; 10<sup>-1</sup> =
+                    <span class="fraction">
+                        (2<i>x</i>)<sup>2</sup>
+                        <line></line>
+                        (0.100M - <i>x</i>)(0.100M - <i>x</i>)
+                    </span>
+                    <br />
+                    <br />
+                    5.4 &#0215; 10<sup>-1</sup> =
+                    <span class="fraction">
+                        2<i>x</i>
+                        <line></line>
+                        0.100M - <i>x</i>
+                    </span>
+                    <br />
+                    <br />
+                    <i>x</i> = 2.7 &#0215; 10<sup>-2</sup>
+                </span>
+                In this case, the final concentration of HI is 2<i>x</i>, or 5.4 &#0215; 10<sup>-2</sup> M.
+            </p>
+        </div>
+
+        <div class="section" id="le-chateliers-principle">
+            <h2>Le Chatelier's principle</h2>
+            <p>
+                Systems at equilibrium are cool and all, but what happens when we alter them? Le Chatelier's principle can tell us the
+                answer. It states that if a system at equilibrium is disturbed, the system will shift its equilibrium position so as to
+                counter the effect of the disturbance. This can be explained in terms of <b>kinetic molecular theory</b> by examining the
+                effect that each disturbance has on the collisions taking place in the reaction, and how that affects the forwards and
+                backwards reaction rates of the equilibrium reaction. Le Chatelier's principle can be applied to the following four factors.
+            </p>
+            <ul>
+                <li>
+                	<b>Concentration:</b>
+                    <p>
+                        Adding or removing a reactant or product. If a chemical system is already at equilibrium and the
+                        concentration of any substance in the mixture is increased (either reactant or product), the system
+                        reacts to consume some of that substance. Conversely, if the concentration of a substance is decreased,
+                        the system reacts to produce some of that substance.
+                    </p>
+                    <p>
+                        By adding more reactants or products to the reaction, the frequency of collisions between reactant or product
+                        molecules increases. This gives more opportunities for the forwards or backwards reaction to occur, speeding
+                        up the respective rate and shifting equilibrium the other way. Similarly, reducing the concentration reduces
+                        the number of collisions and slows down the rate in one direction causing the equilibrium to shift towards
+                        the slower rate.
+                    </p>
+                </li>
+                <li>
+                	<b>Pressure:</b>
+                    <p>
+                        Changing the pressure by changing the volume. Reducing the volume of a gaseous equilibrium mixture causes
+                        the system to shift in the direction that reduces the number of moles of gas. Increasing the volume of a
+                        gaseous equilibrium mixture causes the sytem to shift in the direction that increases the number of moles
+                        of gas. Note that changing the total pressure by adding a non-reacting gas to the system does <b>not</b>
+                        affect equilibrium. This is because the partial pressure of the reactants and products remain unchanged.
+                    </p>
+                    <p>
+                        When the partial pressures of the reacting gases are increased, the number of collisions for both products
+                        and reactants increases, but it increases more for the side with more moles of gas. This increases the
+                        reaction rate for the side with more moles of gas and causes the equilibrium to shift to the other side.
+                        Decreasing the pressure has the opposite effect. Adding a non-reacting gas has no effect because it changes
+                        the rate of collisions between both the reactants and the products by the same amount, leading to no net
+                        shift.
+                    </p>
+                </li>
+                <li>
+                    <b>Temperature:</b>
+                    <p>
+                    	Increasing or decreasing the reaction temperature. When the temperature of a system at equilibrium is
+                        increased, the system reacts as if we added a reactant to an endothermic reaction or a product to an
+                        exothermic reaction. The equilibrium shifts in the direction that consumes the excess reactant (or product),
+                        namely heat.
+                    </p>
+                    <p>
+                        When the temperature increases, the average kinetic energy of all particles is higher, so the number of
+                        collisions in which the particles have enough energy to react is higher. This speeds up the rate in both
+                        directions, but the increase is greater for endothermic reactions than exothermic reactions so the
+                        equilibrium shifts to consume heat. The opposite is true for decreasing the temperature.
+                    </p>
+                </li>
+                <li>
+                    <b>Catalyst:</b>
+                    <p>
+                    	Adding or removing a catalyst. A catalyst increases the rate at which equilibrium is achieved but does
+                        not change the composition of the equilibrium mixture.
+                    </p>
+                    <p>
+                        A catalyst works by lowering the activation energy of a reaction so that more collisions are energetic
+                        enough to react, but it does so equally in both directions. Both rates increase the same amount, so there
+                        is no net shift in equilibrium.
+                    </p>
+                </li>
+            </ul>
+            <p>
+                You can explore these factors yourself in the <a href="#reaction-simulator">reaction simulator</a> below.
+            </p>
+        </div>
+
+        <div class="section" id="industrial-applications">
+            <h2>Industrial applications</h2>
+            <p>
+                For industrial processes, it is important to maximize the concentration of the desired products and minimise the
+                'leftover' reactants. Le Chatelier's Principle and the principles of reaction kinetics can both be used to design the
+                best reaction conditions to give the highest possible yield of product in an economic way.
+            </p>
+            <p>
+                Ideas on 'economic production' are described in most detail for the Haber Synthesis of ammonia, but equilibrium and
+                kinetic factors are continually mentioned in the other examples too.
+            </p>
+            <p>
+                The Haber process, developed by Fritz Haber and Carl Bosch, is an artificial nitrogen fixation process and is the main
+                industrial procedure for the production of ammonia today. The process converts atmospheric nitrogen (N<sub>2</sub>) to
+                ammonia (NH<sub>3</sub>) by a reaction with hydrogen (H<sub>2</sub>) using a metal catalyst under high temperatures and
+                pressures. Although the Haber process is mainly used to produce fertilizer today, during World War I it provided Germany
+                with a source of ammonia for the production of explosives, compensating for the Allied trade blockade on Chilean saltpeter.
+            </p>
+            <p>
+                <span class="equation">
+                    N<sub>2</sub>(g) + 3H<sub>2</sub>(g) &#8644; 2NH<sub>3</sub>(g), &emsp; &Delta;H = -92 kJ/mol
+                </span>
+                The Haber process incorporates
+            </p>
+            <ul>
+                <li>a high temperature &#0151; about 450&#8451;</li>
+                <li>a high pressure &#0151; about 200 atmospheres (200 times normal pressure)</li>
+                <li>an iron catalyst</li>
+            </ul>
+            <p>
+                The pressure and catalyst make sense in order to maximize ammonia output rate, just like what the le Chatelier's Principle
+                states. However, the high temperature may seem odd because the reaction is exothermic. While a lower temperature would result
+                in a higher concentration of ammonia at equilibrium, it would also dramatically slow down the rate at which equilibrium
+                is reached. The temperature 450&#8451; happens to be a compromise between increasing the equilibrium concentration of
+                ammonia while keeping the reaction rate fast enough to be practical.
+            </p>
+
+        </div>
+
+        <div class="section" id="reaction-simulator">
+            <h1>Reaction Simulator</h1>
+
+            <div class="legend">
+                <b>Legend:</b>
+                <content>
+                    A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.25em;"></span>
+                    <br />
+                    B: <span class="circle" style="width: 1em; height: 1em; background-color: red; top: 0.25em; left: 0em;"></span>
+                    <br />
+                    C: <span class="circle" style="width: 0.83em; height: 0.83em; background-color: yellow; top: 0.17em; left: 0.08em;"></span>
+                    <br />
+                    D: <span class="circle" style="width: 0.67em; height: 0.67em; background-color: green; top: 0.08em; left: 0.17em;"></span>
+                </content>
+            </div>
+            <canvas id="simulation" width="800" height="500"></canvas>
+
+            <div id="sim-controls">
+                <span id="sim-select">
+                    Reaction:
+                    <select id="reaction">
+                        <option>A + B &#8644; C</option>
+                        <option>A + B &#8644; C + D</option>
+                        <option>A + B &#8644; C + D, &Delta;H < 0</option>
+                    </select>
+                    <button type="button" onclick="simulate()">Start</button>
+                </span>
+                <span id="sim-opts">
+                    Options:
+                    &ensp;
+                    <div class="sim-opt">
+                        T
+                        <div class="sim-opt-btns">
+                            <button type="button" onclick="option('T', true)">&#x25B4;</button>
+                            <button type="button" onclick="option('T', false)">&#x25BE;</button>
+                        </div>
+                    </div>
+                    &ensp;
+                    <div class="sim-opt">
+                        V
+                        <div class="sim-opt-btns">
+                            <button type="button" onclick="option('V', true)">&#x25B4;</button>
+                            <button type="button" onclick="option('V', false)">&#x25BE;</button>
+                        </div>
+                    </div>
+                    &ensp;
+                    <div class="sim-opt">
+                        [A]
+                        <div class="sim-opt-btns">
+                            <button type="button" onclick="option('[A]', true)">&#x25B4;</button>
+                            <button type="button" onclick="option('[A]', false)">&#x25BE;</button>
+                        </div>
+                    </div>
+                    &ensp;
+                    <div class="sim-opt">
+                        [B]
+                        <div class="sim-opt-btns">
+                            <button type="button" onclick="option('[B]', true)">&#x25B4;</button>
+                            <button type="button" onclick="option('[B]', false)">&#x25BE;</button>
+                        </div>
+                    </div>
+                    &ensp;
+                    <div class="sim-opt">
+                        [C]
+                        <div class="sim-opt-btns">
+                            <button type="button" onclick="option('[C]', true)">&#x25B4;</button>
+                            <button type="button" onclick="option('[C]', false)">&#x25BE;</button>
+                        </div>
+                    </div>
+                    &ensp;
+                    <div class="sim-opt">
+                        [D]
+                        <div class="sim-opt-btns">
+                            <button type="button" onclick="option('[D]', true)">&#x25B4;</button>
+                            <button type="button" onclick="option('[D]', false)">&#x25BE;</button>
+                        </div>
+                    </div>
+                </span>
+            </div>
+
+            <table id="sim-data">
+                <tr>
+                    <th>A</th>
+                    <th>+</th>
+                    <th>B</th>
+                    <th>&#8644;</th>
+                    <th>C</th>
+                    <th>+</th>
+                    <th>D</th>
+                </tr>
+                <tr>
+                    <td id="[A]">0</td>
+                    <td></td>
+                    <td id="[B]">0</td>
+                    <td></td>
+                    <td id="[C]">0</td>
+                    <td></td>
+                    <td id="[D]">0</td>
+                </tr>
+            </table>
+
+        </div>
 
     </div>
 

@@ -2,6 +2,31 @@
 body {
     margin: 0em;
 }
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 3em;
+    margin: 0em;
+    padding: 0em;
+    background-color: rgba(64, 64, 64, 0.75);
+    color: gold;
+}
+.header > li {
+    display: inline-block;
+    height: 100%;
+}
+.header > li > a {
+    display: block;
+    padding: 1em 2em;
+    text-decoration: none;
+}
+.header > li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.header > li:hover > a {
+    color: lightyellow;
+}
 #background {
     width: 100%;
     height: 100%;
@@ -29,15 +54,15 @@ body {
 
 /*========== Section styles ==========*/
 .section {
-    width: 60%;
-    padding: 2em 20%;
+    width: calc(60% + 10em);
+    padding: 2em calc(20% - 5em);
 }
-.section:nth-of-type(even) {
+.section:nth-child(odd) {
     background-color: lightgray;
     color: black;
     border-color: black;
 }
-.section:nth-of-type(odd) {
+.section:nth-child(even) {
     background-color: rgb(32, 32, 32);
     color: lightgray;
     border-color: lightgray;
@@ -57,6 +82,9 @@ p {
     text-align: justify;
     padding: 0.5em 1em;
     line-height: 1.5em;
+}
+a {
+    color: inherit;
 }
 table {
     color: inherit;
