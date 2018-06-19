@@ -173,6 +173,17 @@ sub {
     display: none;
 }
 
+/* Images */
+figure > img {
+    width: 100%;
+}
+figure > figcaption {
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+}
+
+
 /*========== Simulation stuff ==========*/
 
 .legend {
