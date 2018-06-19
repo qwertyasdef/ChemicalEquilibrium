@@ -135,7 +135,7 @@ function changeT(increase) {
     let buttons = options[0].getElementsByTagName("button");
     buttons[0].disabled = false;
     buttons[1].disabled = false;
-    
+
     if (increase) {
         energy *= multEnergy;
         if (energy >= maxEnergy) {
@@ -206,5 +206,16 @@ function changeConcentration(type, increase) {
             }
         }
         particles = particles.filter(item => toRemove.indexOf(item) === -1);
+    }
+}
+
+function toggleAnswer(btn) {
+    let answer = btn.parentElement.getElementsByClassName("answer")[0];
+    if (answer.style.display === "none") {
+        answer.style.display = "block";
+        btn.innerHTML = "&#0150; Hide answer";
+    } else {
+        answer.style.display = "none";
+        btn.innerHTML = "+ Show answer";
     }
 }

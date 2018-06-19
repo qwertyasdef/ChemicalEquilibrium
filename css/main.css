@@ -146,6 +146,33 @@ sub {
     text-align: center;
 }
 
+/* Practice questions */
+.practice {
+    width: 50%;
+    margin: auto;
+    padding: 2em 10%;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 1em;
+}
+.question::before {
+    content: "Pop quiz!";
+    font-weight: bold;
+    display: block;
+}
+.practice > button {
+    margin: 1em 0em;
+    padding: 0em;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: inherit;
+}
+.answer {
+    display: none;
+}
+
 /*========== Simulation stuff ==========*/
 
 .legend {
