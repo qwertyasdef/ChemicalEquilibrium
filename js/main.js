@@ -211,7 +211,7 @@ function changeConcentration(type, increase) {
 
 function toggleAnswer(btn) {
     let answer = btn.parentElement.getElementsByClassName("answer")[0];
-    if (answer.style.display === "none") {
+    if (window.getComputedStyle(answer).getPropertyValue("display") === "none") {
         answer.style.display = "block";
         btn.innerHTML = "&#0150; Hide answer";
     } else {
