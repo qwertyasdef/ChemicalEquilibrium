@@ -99,12 +99,13 @@ th, td {
 sup, sub {
     vertical-align: middle;
     position: relative;
+    font-size: 0.8em
 }
 sup {
-    top: -0.4em;
+    top: -0.5em;
 }
 sub {
-    bottom: -0.2em;
+    bottom: -0.3em;
 }
 .equation {
     display: block;
