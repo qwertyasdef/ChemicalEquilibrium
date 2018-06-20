@@ -186,6 +186,10 @@ figure > figcaption {
     text-align: center;
 }
 
+.video {
+    text-align: center;
+    padding: 1em;
+}
 
 /*========== Simulation stuff ==========*/
 
