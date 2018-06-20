@@ -70,15 +70,13 @@ body {
     color: lightgray;
     border-color: lightgray;
 }
+.section#footer {
+    font-size: 0.8em;
+}
 
 /*========== Text styles ==========*/
 
 h1 {
-    margin: 1em;
-    font-size: 3em;
-    text-align: center;
-}
-h2 {
     font-size: 2em;
 }
 p {
@@ -192,6 +190,10 @@ figure > figcaption {
 }
 
 /*========== Simulation stuff ==========*/
+
+#sim-container {
+    padding: 0em 10%;
+}
 
 .legend {
     width: 4em;

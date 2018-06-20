@@ -19,7 +19,7 @@
         <li><a href="#common-uses-for-keq">Common uses for K<sub>eq</sub></a></li>
         <li><a href="#le-chateliers-principle">Le Chatelier's principle</a></li>
         <li><a href="#industrial-applications">Industrial applications</a></li>
-        <li><a href="#reaction-simulator">Reaction Simulator</a></li>
+        <li><a href="#reaction-simulator">Reaction simulator</a></li>
     </ul>
 
     <div id="title-screen">
@@ -29,7 +29,7 @@
 
     <div>
         <div class="section" id="introduction">
-            <h2>Introduction</h2>
+            <h1>Introduction</h1>
             <p>
                 In chemistry, reactions don't always proceed to the end. Sometimes, they get stuck in the middle. This is called
                 <b>equilibrium</b>, and it happens for reactions that occur in both directions. When a reaction is in equilibrium, the
@@ -111,7 +111,7 @@
         </div>
 
         <div class="section" id="common-uses-for-keq">
-            <h2>Common uses for K<sub>eq</sub></h2>
+            <h1>Common uses for K<sub>eq</sub></h1>
             <p>
                 Ok, we've seen that equilibrium reactions have equilibrium constants associated with them, but what are they good for?
             </p>
@@ -209,6 +209,9 @@
                 </span>
                 In this case, the final concentration of HI is 2<i>x</i>, or 5.4 &#0215; 10<sup>-2</sup> M.
             </p>
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/54n1XppP-lA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
             <div class="practice">
                 <div class="question">
                     For the reaction
@@ -277,7 +280,7 @@
         </div>
 
         <div class="section" id="le-chateliers-principle">
-            <h2>Le Chatelier's principle</h2>
+            <h1>Le Chatelier's principle</h1>
 
             <figure style="width: 20%; float: right;">
                 <img src="assets/le-chatelier.jpg"/>
@@ -396,7 +399,7 @@
         </div>
 
         <div class="section" id="industrial-applications">
-            <h2>Industrial applications</h2>
+            <h1>Industrial applications</h1>
             <p>
                 For industrial processes, it is important to maximize the concentration of the desired products and minimise the
                 'leftover' reactants. Le Chatelier's Principle and the principles of reaction kinetics can both be used to design the
@@ -464,106 +467,114 @@
         </div>
 
         <div class="section" id="reaction-simulator">
-            <h1>Reaction Simulator</h1>
+            <h1>Reaction simulator</h1>
 
-            <div class="legend">
-                <b>Legend:</b>
-                <content>
-                    A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.25em;"></span>
-                    <br />
-                    B: <span class="circle" style="width: 1em; height: 1em; background-color: red; top: 0.25em; left: 0em;"></span>
-                    <br />
-                    C: <span class="circle" style="width: 0.83em; height: 0.83em; background-color: yellow; top: 0.17em; left: 0.08em;"></span>
-                    <br />
-                    D: <span class="circle" style="width: 0.67em; height: 0.67em; background-color: green; top: 0.08em; left: 0.17em;"></span>
-                </content>
+            <div id="sim-container">
+                <div class="legend">
+                    <b>Legend:</b>
+                    <content>
+                        A: <span class="circle" style="width: 0.5em; height: 0.5em; background-color: white; top: 0em; left: 0.25em;"></span>
+                        <br />
+                        B: <span class="circle" style="width: 1em; height: 1em; background-color: red; top: 0.25em; left: 0em;"></span>
+                        <br />
+                        C: <span class="circle" style="width: 0.83em; height: 0.83em; background-color: yellow; top: 0.17em; left: 0.08em;"></span>
+                        <br />
+                        D: <span class="circle" style="width: 0.67em; height: 0.67em; background-color: green; top: 0.08em; left: 0.17em;"></span>
+                    </content>
+                </div>
+                <canvas id="simulation" width="800" height="500"></canvas>
+
+                <div id="sim-controls">
+                    <span id="sim-select">
+                        Reaction:
+                        <select id="reaction">
+                            <option>A + B &#8644; C</option>
+                            <option>A + B &#8644; C + D</option>
+                            <option>A + B &#8644; C + D, &Delta;H < 0</option>
+                        </select>
+                        <button type="button" onclick="simulate()">Start</button>
+                    </span>
+                    <span id="sim-opts">
+                        Options:
+                        &ensp;
+                        <div class="sim-opt">
+                            T
+                            <div class="sim-opt-btns">
+                                <button type="button" onclick="option('T', true)">&#x25B4;</button>
+                                <button type="button" onclick="option('T', false)">&#x25BE;</button>
+                            </div>
+                        </div>
+                        &ensp;
+                        <div class="sim-opt">
+                            V
+                            <div class="sim-opt-btns">
+                                <button type="button" onclick="option('V', true)">&#x25B4;</button>
+                                <button type="button" onclick="option('V', false)">&#x25BE;</button>
+                            </div>
+                        </div>
+                        &ensp;
+                        <div class="sim-opt">
+                            [A]
+                            <div class="sim-opt-btns">
+                                <button type="button" onclick="option('[A]', true)">&#x25B4;</button>
+                                <button type="button" onclick="option('[A]', false)">&#x25BE;</button>
+                            </div>
+                        </div>
+                        &ensp;
+                        <div class="sim-opt">
+                            [B]
+                            <div class="sim-opt-btns">
+                                <button type="button" onclick="option('[B]', true)">&#x25B4;</button>
+                                <button type="button" onclick="option('[B]', false)">&#x25BE;</button>
+                            </div>
+                        </div>
+                        &ensp;
+                        <div class="sim-opt">
+                            [C]
+                            <div class="sim-opt-btns">
+                                <button type="button" onclick="option('[C]', true)">&#x25B4;</button>
+                                <button type="button" onclick="option('[C]', false)">&#x25BE;</button>
+                            </div>
+                        </div>
+                        &ensp;
+                        <div class="sim-opt">
+                            [D]
+                            <div class="sim-opt-btns">
+                                <button type="button" onclick="option('[D]', true)">&#x25B4;</button>
+                                <button type="button" onclick="option('[D]', false)">&#x25BE;</button>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+
+                <table id="sim-data">
+                    <tr>
+                        <th>A</th>
+                        <th>+</th>
+                        <th>B</th>
+                        <th>&#8644;</th>
+                        <th>C</th>
+                        <th>+</th>
+                        <th>D</th>
+                    </tr>
+                    <tr>
+                        <td id="[A]">0</td>
+                        <td></td>
+                        <td id="[B]">0</td>
+                        <td></td>
+                        <td id="[C]">0</td>
+                        <td></td>
+                        <td id="[D]">0</td>
+                    </tr>
+                </table>
             </div>
-            <canvas id="simulation" width="800" height="500"></canvas>
 
-            <div id="sim-controls">
-                <span id="sim-select">
-                    Reaction:
-                    <select id="reaction">
-                        <option>A + B &#8644; C</option>
-                        <option>A + B &#8644; C + D</option>
-                        <option>A + B &#8644; C + D, &Delta;H < 0</option>
-                    </select>
-                    <button type="button" onclick="simulate()">Start</button>
-                </span>
-                <span id="sim-opts">
-                    Options:
-                    &ensp;
-                    <div class="sim-opt">
-                        T
-                        <div class="sim-opt-btns">
-                            <button type="button" onclick="option('T', true)">&#x25B4;</button>
-                            <button type="button" onclick="option('T', false)">&#x25BE;</button>
-                        </div>
-                    </div>
-                    &ensp;
-                    <div class="sim-opt">
-                        V
-                        <div class="sim-opt-btns">
-                            <button type="button" onclick="option('V', true)">&#x25B4;</button>
-                            <button type="button" onclick="option('V', false)">&#x25BE;</button>
-                        </div>
-                    </div>
-                    &ensp;
-                    <div class="sim-opt">
-                        [A]
-                        <div class="sim-opt-btns">
-                            <button type="button" onclick="option('[A]', true)">&#x25B4;</button>
-                            <button type="button" onclick="option('[A]', false)">&#x25BE;</button>
-                        </div>
-                    </div>
-                    &ensp;
-                    <div class="sim-opt">
-                        [B]
-                        <div class="sim-opt-btns">
-                            <button type="button" onclick="option('[B]', true)">&#x25B4;</button>
-                            <button type="button" onclick="option('[B]', false)">&#x25BE;</button>
-                        </div>
-                    </div>
-                    &ensp;
-                    <div class="sim-opt">
-                        [C]
-                        <div class="sim-opt-btns">
-                            <button type="button" onclick="option('[C]', true)">&#x25B4;</button>
-                            <button type="button" onclick="option('[C]', false)">&#x25BE;</button>
-                        </div>
-                    </div>
-                    &ensp;
-                    <div class="sim-opt">
-                        [D]
-                        <div class="sim-opt-btns">
-                            <button type="button" onclick="option('[D]', true)">&#x25B4;</button>
-                            <button type="button" onclick="option('[D]', false)">&#x25BE;</button>
-                        </div>
-                    </div>
-                </span>
-            </div>
+        </div>
 
-            <table id="sim-data">
-                <tr>
-                    <th>A</th>
-                    <th>+</th>
-                    <th>B</th>
-                    <th>&#8644;</th>
-                    <th>C</th>
-                    <th>+</th>
-                    <th>D</th>
-                </tr>
-                <tr>
-                    <td id="[A]">0</td>
-                    <td></td>
-                    <td id="[B]">0</td>
-                    <td></td>
-                    <td id="[C]">0</td>
-                    <td></td>
-                    <td id="[D]">0</td>
-                </tr>
-            </table>
-
+        <div class="section" id="footer">
+            &#169;2018 Bicheng An, Brian Yao, and Jay Zou
+            <br />
+            <a href="https://github.com/qwertyasdef/ChemicalEquilibrium">Source code</a>
         </div>
 
     </div>
