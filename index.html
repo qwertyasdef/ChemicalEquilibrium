@@ -89,16 +89,17 @@
                 <div class="question">
                     What is the equilibrium expression for this reaction?
                     <span class="equation">
-                        2NO<sub>2</sub> &#8644; N<sub>2</sub>O<sub>4</sub>
+                        N<sub>2</sub>O<sub>4</sub>(g) &#8644; 2NO<sub>2</sub>(g)
                     </span>
                 </div>
                 <button onclick="toggleAnswer(this);">+ Show answer</button>
                 <div class="answer">
                     <span class="equation">
+                        K<sub>eq</sub> =
                         <span class="fraction">
-                            [N<sub>2</sub>O<sub>4</sub>]
-                            <line></line>
                             [NO<sub>2</sub>]<sup>2</sup>
+                            <line></line>
+                            [N<sub>2</sub>O<sub>4</sub>]
                         </span>
                     </span>
                 </div>
@@ -208,10 +209,12 @@
                 <div class="question">
                     For the reaction
                     <span class="equation">
-                        2NO<sub>2</sub> &#8644; N<sub>2</sub>O<sub>4</sub>, &emsp; K<sub>eq</sub> = 58
+                        N<sub>2</sub>O<sub>4</sub>(g) &#8644; 2NO<sub>2</sub>(g),
+                        &emsp; K<sub>eq</sub> = 1.7 &#0215; 10<sup>-2</sup>
                     </span>
-                    what is the final concentration of N<sub>2</sub>O<sub>4</sub> if its initial concentration is 0M and the initial
-                    concentration of NO<sub>2</sub> is 2.0M?
+                    what is the final concentration of nitrogen dioxide if the system starts with 2.0 M of dinitrogen tetraoxide
+                    and 0.0 M of nitrogen dioxide?
+
                 </div>
                 <button onclick="toggleAnswer(this);">+ Show answer</button>
                 <div class="answer">
@@ -219,48 +222,51 @@
                     <table class="rice">
                         <tr>
                             <td><b>R</b>eaction</td>
-                            <td>2NO<sub>2</sub></td>
-                            <td>&#8644;</td>
                             <td>N<sub>2</sub>O<sub>4</sub></td>
+                            <td>&#8644;</td>
+                            <td>2NO<sub>2</sub></td>
                         </tr>
                         <tr>
                             <td><b>I</b>nitial</td>
-                            <td>2.0M</td>
+                            <td>2.0 M</td>
                             <td></td>
-                            <td>0M</td>
+                            <td>0.0 M</td>
                         </tr>
                         <tr>
                             <td><b>C</b>hange</td>
-                            <td>-2<i>x</i></td>
+                            <td>-<i>x</i></td>
                             <td></td>
-                            <td>+<i>x</i></td>
+                            <td>+2<i>x</i></td>
                         </tr>
                         <tr>
                             <td><b>E</b>quilibrium</td>
-                            <td>2.0M - 2<i>x</i></td>
+                            <td>2.0 M - <i>x</i></td>
                             <td></td>
-                            <td><i>x</i></td>
+                            <td>2<i>x</i></td>
                         </tr>
                     </table>
                     Then, write the equilibrium expression and solve the equation
                     <span class="equation">
                         K<sub>eq</sub> =
                         <span class="fraction">
-                            [N<sub>2</sub>O<sub>4</sub>]
-                            <line></line>
                             [NO<sub>2</sub>]<sup>2</sup>
-                        </span>
-                        <br />
-                        <br />
-                        58 =
-                        <span class="fraction">
-                            <i>x</i>
                             <line></line>
-                            (2 - 2<i>x</i>)<sup>2</sup>
+                            [N<sub>2</sub>O<sub>4</sub>]
                         </span>
                         <br />
                         <br />
-                        <i>x</i> = 0.94 = [N<sub>2</sub>O<sub>4</sub>]
+                        1.7 &#0215; 10<sup>-2</sup> =
+                        <span class="fraction">
+                            (2<i>x</i>)<sup>2</sup>
+                            <line></line>
+                            2 - <i>x</i>
+                        </span>
+                        <br />
+                        <br />
+                        <i>x</i> = 9.0 &#0215; 10<sup>-2</sup>
+                        <br />
+                        <br />
+                        [NO<sub>2</sub>] = 2<i>x</i> = 1.8 &#0215; 10<sup>-1</sup> M
                     </span>
                 </div>
             </div>
@@ -275,11 +281,12 @@
                 <figcaption>Henry Louis Le Chatelier</figcaption>
             </figure>
             <p>
-                Systems at equilibrium are cool and all, but what happens when we alter them? Le Chatelier's principle can tell us the
-                answer. It states that if a system at equilibrium is disturbed, the system will shift its equilibrium position so as to
-                counter the effect of the disturbance. This can be explained in terms of <b>kinetic molecular theory</b> by examining the
-                effect that each disturbance has on the collisions taking place in the reaction, and how that affects the forwards and
-                backwards reaction rates of the equilibrium reaction. Le Chatelier's principle can be applied to the following four factors.
+                Systems at equilibrium are cool and all, but what happens when we alter them? Le Chatelier's principle can tell
+                us the answer. It states that if a system at equilibrium is disturbed, the system will shift its equilibrium
+                position so as to counter the effect of the disturbance. This can be explained in terms of
+                <b>kinetic molecular theory</b> by examining the effect that each disturbance has on the collisions taking place
+                in the reaction, and how that affects the forwards and backwards reaction rates of the equilibrium reaction. Le
+                Chatelier's principle can be applied to the following four factors.
             </p>
             <ul>
                 <li>
@@ -291,11 +298,11 @@
                         the system reacts to produce some of that substance.
                     </p>
                     <p>
-                        By adding more reactants or products to the reaction, the frequency of collisions between reactant or product
-                        molecules increases. This gives more opportunities for the forwards or backwards reaction to occur, speeding
-                        up the respective rate and shifting equilibrium the other way. Similarly, reducing the concentration reduces
-                        the number of collisions and slows down the rate in one direction causing the equilibrium to shift towards
-                        the slower rate.
+                        By adding more reactants or products to the reaction, the frequency of collisions between reactant or
+                        product molecules increases. This gives more opportunities for the forwards or backwards reaction to
+                        occur, speeding up the respective rate and shifting equilibrium the other way. Similarly, reducing the
+                        concentration reduces the number of collisions and slows down the rate in one direction causing the
+                        equilibrium to shift towards the slower rate.
                     </p>
                 </li>
                 <li>
@@ -308,12 +315,12 @@
                         affect equilibrium. This is because the partial pressure of the reactants and products remain unchanged.
                     </p>
                     <p>
-                        When the partial pressures of the reacting gases are increased, the number of collisions for both products
-                        and reactants increases, but it increases more for the side with more moles of gas. This increases the
-                        reaction rate for the side with more moles of gas and causes the equilibrium to shift to the other side.
-                        Decreasing the pressure has the opposite effect. Adding a non-reacting gas has no effect because it changes
-                        the rate of collisions between both the reactants and the products by the same amount, leading to no net
-                        shift.
+                        When the partial pressures of the reacting gases are increased, the number of collisions for both
+                        products and reactants increases, but it increases more for the side with more moles of gas. This
+                        increases the reaction rate for the side with more moles of gas and causes the equilibrium to shift
+                        to the other side. Decreasing the pressure has the opposite effect. Adding a non-reacting gas has no
+                        effect because it changes the rate of collisions between both the reactants and the products by the
+                        same amount, leading to no net shift.
                     </p>
                 </li>
                 <li>
@@ -321,8 +328,8 @@
                     <p>
                     	Increasing or decreasing the reaction temperature. When the temperature of a system at equilibrium is
                         increased, the system reacts as if we added a reactant to an endothermic reaction or a product to an
-                        exothermic reaction. The equilibrium shifts in the direction that consumes the excess reactant (or product),
-                        namely heat.
+                        exothermic reaction. The equilibrium shifts in the direction that consumes the excess reactant
+                        (or product), namely heat.
                     </p>
                     <p>
                         When the temperature increases, the average kinetic energy of all particles is higher, so the number of
@@ -347,6 +354,41 @@
             <p>
                 You can explore these factors yourself in the <a href="#reaction-simulator">reaction simulator</a> below.
             </p>
+            <div class="practice">
+                <div class="question">
+                    For the reaction
+                    <span class="equation">
+                        N<sub>2</sub>O<sub>4</sub>(g) &#8644; 2NO<sub>2</sub>(g), &emsp; &Delta;H = 57.2 kJ/mol
+                    </span>
+                    which way would the equilibrium shift for each scenario?
+                    <ol>
+                        <li>Increase the concentration of N<sub>2</sub>O<sub>4</sub></li>
+                        <li>Increase the volume of the container</li>
+                        <li>Decrease the temperature of the reaction</li>
+                        <li>Add a catalyst to the reaction</li>
+                    </ol>
+                </div>
+                <button onclick="toggleAnswer(this);">+ Show answer</button>
+                <div class="answer">
+                    <ol>
+                        <li>
+                            The concentration on the reactants side is increased, so the equilibrium will shift to the products.
+                        </li>
+                        <li>
+                            Increasing the volume decreases the pressure, which favours the side with more moles of gas. In this
+                            case, the equilibrium will shift to the products.
+                        </li>
+                        <li>
+                            Decreasing the temperature favours the exothermic reaction. &Delta;H is positive so the reverse
+                            reaction is exothermic and the equilibrium will shift towards the reactants.
+                        </li>
+                        <li>
+                            The equilibrium will not shift, because both the forward and reverse rates will be increased the
+                            same amount by the catalyst.
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </div>
 
         <div class="section" id="industrial-applications">
@@ -385,7 +427,33 @@
                 is reached. The temperature 450&#8451; happens to be a compromise between increasing the equilibrium concentration of
                 ammonia while keeping the reaction rate fast enough to be practical.
             </p>
-
+            <div class="practice">
+                <div class="question">
+                    How can you optimize this reaction to maximize the rate at which the product is produced?
+                    <span class="equation">
+                        N<sub>2</sub>O<sub>4</sub>(g) &#8644; 2NO<sub>2</sub>(g), &emsp; &Delta;H = 57.2 kJ/mol
+                    </span>
+                </div>
+                <button onclick="toggleAnswer(this);">+ Show answer</button>
+                <div class="answer">
+                    <p>
+                        Increasing the concentration of dinitrogen tetraoxide gas will make the reaction shift to the products,
+                        increasing the amount of nitrogen dioxide present in the equilibrium mixture.
+                    </p>
+                    <p>
+                        The products side has more moles of gas than the reactants side, so the pressure should be decreased
+                        to maximize the amount of nitrogen dioxide produced.
+                    </p>
+                    <p>
+                        Since the forward reaction is endothermic, performing the reaction at a high temperature will shift the
+                        equilibrium to the products while also increasing the rate at which equilibrium is reached.
+                    </p>
+                    <p>
+                        The addition of a catalyst will not increase the amount of product at equilibrium, but it will speed up
+                        the reaction to produce nitrogen dioxide faster.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div class="section" id="reaction-simulator">
