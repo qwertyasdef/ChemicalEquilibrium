@@ -16,6 +16,8 @@ const minWidth = 200;
 const maxWidth = 800;
 const stepWidth = 200;
 
+let graphData;
+
 window.onload = function() {
     background = document.getElementById("simulation");
     ctx = background.getContext("2d");
@@ -47,13 +49,9 @@ function simulate() {
     particles = [];
     container = {"width": background.width, "height": background.height};
     // Add particles
-    for (let type of reaction.reactants) {
-        for (let i = 0; i < 30; i++) {
-            particles.push(new Particle(type));
-        }
-    }
-    for (let type of reaction.products) {
-        for (let i = 0; i < 30; i++) {
+    for (let type of [...reaction.reactants, ...reaction.products]) {
+        const numParticles = Math.random() * 40 + 40;
+        for (let i = 0; i < numParticles; i++) {
             particles.push(new Particle(type));
         }
     }
@@ -63,6 +61,14 @@ function simulate() {
         p.vx *= factor;
         p.vy *= factor;
     }
+
+    // Initialize graph data
+    graphData = {
+        "A": [],
+        "B": [],
+        "C": [],
+        "D": [],
+    };
 
     function update(time) {
         // Draw and update simulation
@@ -97,6 +103,18 @@ function simulate() {
         document.getElementById("[B]").innerHTML = counts[1];
         document.getElementById("[C]").innerHTML = counts[2];
         document.getElementById("[D]").innerHTML = counts[3];
+        // Update graph
+        graphData.A.push(counts[0]);
+        graphData.B.push(counts[1]);
+        graphData.C.push(counts[2]);
+        graphData.D.push(counts[3]);
+        if (graphData.A.length > 1000) {
+            graphData.A.shift();
+            graphData.B.shift();
+            graphData.C.shift();
+            graphData.D.shift();
+        }
+        drawGraph();
 
         // Request next frame
         frameID = window.requestAnimationFrame(update);
@@ -104,6 +122,32 @@ function simulate() {
 
     frameID = window.requestAnimationFrame(update);
 
+}
+
+function drawGraph() {
+    const graph = document.getElementById("sim-graph");
+    const graphCtx = graph.getContext("2d");
+    graphCtx.clearRect(0, 0, graph.width, graph.height);
+
+    const maxParticles = Math.max(...graphData.A, ...graphData.B, ...graphData.C, ...graphData.D);
+
+    for (let [name, properties] of Object.entries(ParticleTypes)) {
+        if (name === "D" && reaction === reactions[0]) {
+            break;
+        }
+        graphCtx.strokeStyle = properties.color;
+        graphCtx.beginPath();
+        for (let i = 0; i < graphData[name].length; i++) {
+            const x = graph.width * i / 1000;
+            const y = graph.height - graph.height * graphData[name][i] / maxParticles;
+            if (i === 0) {
+                graphCtx.moveTo(x, y);
+            } else {
+                graphCtx.lineTo(x, y);
+            }
+        }
+        graphCtx.stroke();
+    }
 }
 
 // Returns the average energy of a particle
